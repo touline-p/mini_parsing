@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:58:54 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/24 01:11:54 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/24 03:02:49 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,12 @@ void	preserv(t_token *tok)
 	(void)tok;
 	//escaping_chars();
 	return ;
+}
+
+void	put_esec(t_token *tok)
+{
+	if (tok->esec == SECURED)
+		printf("-> secured");
+	else
+		printf("-> unsecured");
 }

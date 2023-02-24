@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:57:21 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/23 22:21:48 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/24 03:42:44 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,18 @@ void	token_lst_clear(t_token *trash)
 		free(trash);
 		trash = tmp;
 	}
+}
+
+void	del_next_token(t_token *token)
+{
+	t_token *tmp;
+
+	tmp = token->next->next;
+	del_token(token->next);
+	token->next = tmp;
+}
+
+void	del_token(t_token *token)
+{
+	free(token);
 }
