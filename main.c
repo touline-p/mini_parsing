@@ -6,9 +6,13 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/24 06:00:00 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/24 06:49:34 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#define S SILENCIEUX
+#define B BAVARD
+
 #ifndef SILENCIEUX
 # define SILENCIEUX true
 #endif
@@ -58,7 +62,7 @@ t_ert 	test_squote_launcher(t_token *tok)
 	while (tok->token != EOL)
 	{
 		if (tok->sign_char == '\''
-			&& squoting_process(tok->next, &tok) != SUCCESS)
+			&& squoting_process(NULL, tok->next, &tok) != SUCCESS)
 			return (FAILURE);
 		tok = tok->next;
 	}
@@ -70,7 +74,7 @@ t_ert 	test_double_quote_launcher(t_token *tok)
 	while (tok->token != EOL)
 	{
 		if ((tok->sign_char == '\"')
-			&& dquoting_process(tok, &tok) != SUCCESS)
+			&& dquoting_process(NULL, tok, &tok) != SUCCESS)
 			return (FAILURE);
 		tok = tok->next;
 	}
@@ -86,6 +90,7 @@ void	tests(char *str, t_ert(*launcher)(t_token *), char *msg, bool silence)
 		printf("%s\n", msg);
 	printf("pour ->%s<-\n", str);
 	t_token *tok = token_lst_constructor(ft_strdup(str));
+	display_tokens(tok);
 	if (launcher(tok) == SUCCESS)
 		display_tokens(tok);
 	token_lst_clear(tok);
@@ -119,10 +124,11 @@ void	test_escaping(char *str)
 
 
 
-void	test_preserves(void)
+void	tests_preserves(void)
 {
-	tests("", preserve_token_lst, "chaine vide");
-}
+	tests("", preserve_token_lst, "chaine vide", B);
+	tests("\\bonjour a \"toi $petit \\$NOM et toi $USER\"", preserve_token_lst,NULL, B);
+}///
 
 int main(int ac, char **av) {
 
@@ -144,5 +150,6 @@ int main(int ac, char **av) {
 	}
 	tests_double_quote();
 	tests_simple_quote();
+	tests_preserves();
 	return (0);
 }

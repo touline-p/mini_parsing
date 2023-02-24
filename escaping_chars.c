@@ -6,14 +6,13 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 01:12:38 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/24 05:50:58 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/24 06:19:23 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_parsing.h"
 
 static t_ert	_escaping_chars_ep(void);
-t_ert	escape_process(t_token *last_pt, t_token *tok);
 
 ////TO DO cette fonction parcours toute la chaine pour tout les escape
 //// Ce n'est pas le bon fonctionnement.
@@ -26,7 +25,7 @@ t_ert	escaping_chars(t_token *tok)
 	pin = tok->next;
 	while (pin->token != EOL)
 	{
-		if (escape_process(tok, pin) != SUCCESS)
+		if (escape_process(tok, pin, &tok) != SUCCESS)
 			return (_escaping_chars_ep());
 		tok = tok->next;
 		pin = tok->next;
@@ -34,8 +33,9 @@ t_ert	escaping_chars(t_token *tok)
 	return (SUCCESS);
 }
 
-t_ert	escape_process(t_token *last_pt, t_token *tok)
+t_ert	escape_process(t_token *last_pt, t_token *tok, t_token **voided)
 {
+	(void)voided;
 	if (tok->token != LETTER
 		|| tok->sign_char != '\\'
 		|| tok->esec != UNSECURED)

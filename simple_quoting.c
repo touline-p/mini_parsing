@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 04:03:32 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/24 04:22:46 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/24 06:15:03 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 static t_ert	_squoting_process_ep(void);
 
-t_ert	squoting_process(t_token *token, t_token **end_of_quot_pt)
+t_ert	squoting_process(t_token *voided, t_token *token, t_token **end_of_quot_pt)
 {
+	(void)voided;
 	while(token->token != EOL && token->sign_char != '\'')
 	{
 		token->esec = SECURED;

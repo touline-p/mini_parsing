@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 04:52:43 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/24 05:50:00 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/24 06:19:41 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,16 @@
 
 static t_ert	_dquoting_process_ep(void);
 
-t_ert	dquoting_process(t_token *last_token, t_token **end_of_quot_pt)
+t_ert	dquoting_process(t_token *voided, t_token *last_token, t_token **end_of_quot_pt)
 {
 	t_token	*pin;
 
+	(void)voided;
 	pin = last_token->next;
 	while (pin->token != EOL && pin->sign_char != '\"' && pin->esec != SECURED)
 	{
 		if (pin->sign_char == '\\' && is_from(pin->sign_char, "\\\"$"))
-		{
-			escape_process(last_token, pin);
-		}
+			escape_process(last_token, pin, &last_token);
 		if (pin->sign_char != '$')
 			pin->esec = SECURED;
 		last_token = last_token->next;
