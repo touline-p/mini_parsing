@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:47:29 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/24 04:49:56 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/24 05:26:03 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <unistd.h>
+# include "libft/libft.h"
 
 t_token	*mini_parsing(char *str);
 t_token	*token_lst_constructor(char *str);

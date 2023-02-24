@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 19:03:24 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/16 03:23:20 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/24 05:47:49 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,10 @@ char	*ft_strchr(const char *s, int c)
 
 size_t	ft_index_of(const char *s, int c)
 {
-	return (ft_strchr(s, c) - s);
+	char	*res;
+
+	res = ft_strchr(s, c);
+	if (res == NULL)
+		return (-1);
+	return (res - s);
 }

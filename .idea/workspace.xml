@@ -19,8 +19,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6b97335-290a-4613-a513-4cdd787e1fcd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/double_quoting.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/idee" beforeDir="false" afterPath="$PROJECT_DIR$/idee" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/escaping_chars.c" beforeDir="false" afterPath="$PROJECT_DIR$/escaping_chars.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_strchr.c" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_strchr.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini_parsing.h" beforeDir="false" afterPath="$PROJECT_DIR$/mini_parsing.h" afterDir="false" />
     </list>
@@ -82,7 +86,7 @@
       <workItem from="1677066572737" duration="399000" />
       <workItem from="1677067015609" duration="1155000" />
       <workItem from="1677161675116" duration="12500000" />
-      <workItem from="1677185836354" duration="18584000" />
+      <workItem from="1677185836354" duration="22721000" />
     </task>
     <servers />
   </component>

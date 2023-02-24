@@ -6,11 +6,13 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/24 04:51:02 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/24 06:00:00 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
+#ifndef SILENCIEUX
+# define SILENCIEUX true
+#endif
+#define BAVARD false
 
 #include <stdio.h>
 #include "test_mini.h"
@@ -51,46 +53,58 @@ void	test_display_unsecured(t_token *hy)
 	display_tokens(hy);
 }
 
-void	test_squote(t_token *tok)
+t_ert 	test_squote_launcher(t_token *tok)
 {
 	while (tok->token != EOL)
 	{
 		if (tok->sign_char == '\''
 			&& squoting_process(tok->next, &tok) != SUCCESS)
-			return ;
+			return (FAILURE);
 		tok = tok->next;
 	}
+	return (SUCCESS);
 }
 
-void	test_double_quote_launcher(t_token *tok)
+t_ert 	test_double_quote_launcher(t_token *tok)
 {
 	while (tok->token != EOL)
 	{
 		if ((tok->sign_char == '\"')
-			&& dquoting_process(tok->next, &tok) != SUCCESS)
-			return ;
+			&& dquoting_process(tok, &tok) != SUCCESS)
+			return (FAILURE);
 		tok = tok->next;
 	}
+	return (SUCCESS);
 }
 
+void	tests(char *str, t_ert(*launcher)(t_token *), char *msg, bool silence)
+{
+	if (silence)
+		return;
+	printf("\n");
+	if (msg)
+		printf("%s\n", msg);
+	printf("pour ->%s<-\n", str);
+	t_token *tok = token_lst_constructor(ft_strdup(str));
+	if (launcher(tok) == SUCCESS)
+		display_tokens(tok);
+	token_lst_clear(tok);
+
+}
 void	tests_double_quote(void)
 {
-	t_token *tok;
-	printf("when starting with double quote\n->\"test<-\n");
-	tok = token_lst_constructor(ft_strdup("\"test"));
-	test_double_quote_launcher(tok);
-	display_tokens(tok);
-	token_lst_clear(tok);
+	tests("\"test", test_double_quote_launcher, "erreure ligne non terminee", SILENCIEUX);
+	tests("\"test\"", test_double_quote_launcher, "cas normale les char entre quotes sont preserve mais pas les quotes", SILENCIEUX);
+	tests("\"t\\e\\\"st\"", test_double_quote_launcher, "slash avant la double quote doit preserver puis partir", SILENCIEUX);
+	tests("\"$\"", test_double_quote_launcher, "le $ ne peut pas etre preserve par les double quote", SILENCIEUX);
 }
 
-void	test_preserv(char *str)
+void	tests_simple_quote(void)
 {
-	printf("all chars between simple quotes must be protected\n->%s<-\n", str);
-	str = ft_strdup(str);
-	t_token *tok = token_lst_constructor(str);
-	test_squote(tok);
-	display_tokens(tok);
-	token_lst_clear(tok);
+	tests("\'test\'", test_squote_launcher, "cas normal les char entre quotes sont preserve mais pas les quotes", SILENCIEUX);
+	tests("\'test", test_squote_launcher, "cas normal les char entre quotes sont preserve mais pas les quotes", SILENCIEUX);
+	tests("\'\'te\'st\'", test_squote_launcher, "seul les char entre quotes sont preserve", SILENCIEUX);
+	tests("\'te\'st", test_squote_launcher, "seul les char entre quotes sont preserve", SILENCIEUX);
 }
 
 void	test_escaping(char *str)
@@ -103,23 +117,32 @@ void	test_escaping(char *str)
 	token_lst_clear(tok);
 }
 
+
+
+void	test_preserves(void)
+{
+	tests("", preserve_token_lst, "chaine vide");
+}
+
 int main(int ac, char **av) {
 
 	if (ac != 2)
 		return (0);
-	test1();
-	char *str = ft_strdup(av[1]);
-	test_line(str);
-	t_token	hy;
-	hy.esec = SECURED;
-	hy.next = NULL;
-	hy.sign_char = 'h';
-	hy.token = LETTER;
-	test_display_secured(&hy);
-	hy.esec = UNSECURED;
-	test_display_unsecured(&hy);
-	test_preserv(av[1]);
-	test_escaping(av[1]);
+	if (SILENCIEUX == false) {
+		test1();
+		char *str = ft_strdup(av[1]);
+		test_line(str);
+		t_token hy;
+		hy.esec = SECURED;
+		hy.next = NULL;
+		hy.sign_char = 'h';
+		hy.token = LETTER;
+		test_display_secured(&hy);
+		hy.esec = UNSECURED;
+		test_display_unsecured(&hy);
+		test_escaping(av[1]);
+	}
 	tests_double_quote();
+	tests_simple_quote();
 	return (0);
 }

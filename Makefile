@@ -1,5 +1,5 @@
 
-NAME := tester
+NAME := ./tester
 
 FILE := main.c \
 	mini_parsing.c \
@@ -8,6 +8,7 @@ FILE := main.c \
 	escaping_chars.c \
 	preserv.c \
 	simple_quoting.c \
+	double_quoting.c \
 
 
 HEADERS	:= basic_enums.h \
@@ -15,9 +16,12 @@ HEADERS	:= basic_enums.h \
 	test_mini.h \
 	libft/libft.h
 
-FLAGS := -Wall -Werror -Wextra -g3
+FLAGS := -Wall -Werror -Wextra -g3 #-D SILENCIEUX=false
 
 OBJS := $(addprefix obj/, $(FILE:.c=.o))
+
+test	: $(NAME)
+	$(NAME)	1
 
 all : $(NAME)
 
