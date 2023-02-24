@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/24 08:21:16 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/24 08:47:44 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,13 +121,13 @@ void	test_escaping(char *str)
 	token_lst_clear(tok);
 }
 
-
+void	tests_split_on_meta(void);
 
 void	tests_preserves(void)
 {
 	tests("", preserve_token_lst, "chaine vide", B);
-	tests("\\bonjour a \'toi $petit \\$NOM et toi $USER\'", preserve_token_lst,NULL, B);
-}///
+	tests("\\bonjour a \\\'toi $petit \\a$NOM et toi $USER\\\'", preserve_token_lst,NULL, B);
+}
 
 int main(int ac, char **av) {
 

@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:42:21 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/23 22:05:20 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/24 08:53:06 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,14 @@ typedef enum	e_return_status
 typedef enum 	e_token_minishell
 {
 	START,
-	CHEVRON,
 	PIPE,
-	STRING,
+	AMPERSAND,
+	CHEVRON_IN,
+	HERE_DOC,
+	CHEVRON_OT,
+	APPENDS,
+	O_PRTSS,
+	C_PRTSS,
 	LETTER,
 	EOL
 }	t_emt;
