@@ -19,13 +19,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6b97335-290a-4613-a513-4cdd787e1fcd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/preserv.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/escaping_chars.c" beforeDir="false" afterPath="$PROJECT_DIR$/escaping_chars.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/idee" beforeDir="false" afterPath="$PROJECT_DIR$/idee" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini_parsing.h" beforeDir="false" afterPath="$PROJECT_DIR$/mini_parsing.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_mini.h" beforeDir="false" afterPath="$PROJECT_DIR$/test_mini.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/testing_utils.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/token_lst_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/token_lst_utils.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +86,7 @@
       <workItem from="1677066572737" duration="399000" />
       <workItem from="1677067015609" duration="1155000" />
       <workItem from="1677161675116" duration="12500000" />
-      <workItem from="1677185836354" duration="14488000" />
+      <workItem from="1677185836354" duration="15560000" />
     </task>
     <servers />
   </component>

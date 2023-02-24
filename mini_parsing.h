@@ -33,7 +33,7 @@ void	del_next_token(t_token *token);
 
 
 /*** preserving ***/
-void	preserv(t_token *tok);
+t_ert 	preserv(t_token *tok);
 t_ert 	escaping_chars(t_token *tok);
 
 #endif //MINI_PARSING_MINI_PARSING_H

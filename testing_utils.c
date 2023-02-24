@@ -50,13 +50,6 @@ void	display_t_emt(t_token *token)
 	free(msg);
 }
 
-void	preserv(t_token *tok)
-{
-	(void)tok;
-	//escaping_chars();
-	return ;
-}
-
 void	put_esec(t_token *tok)
 {
 	if (tok->esec == SECURED)

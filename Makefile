@@ -6,6 +6,7 @@ FILE := main.c \
 	testing_utils.c \
 	token_lst_utils.c \
 	escaping_chars.c \
+	preserv.c \
 
 
 HEADERS	:= basic_enums.h \
