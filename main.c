@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/24 06:49:34 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/24 08:21:16 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ t_ert 	test_double_quote_launcher(t_token *tok)
 	while (tok->token != EOL)
 	{
 		if ((tok->sign_char == '\"')
-			&& dquoting_process(NULL, tok, &tok) != SUCCESS)
+			&& dquoting_process(tok, NULL, &tok) != SUCCESS)
 			return (FAILURE);
 		tok = tok->next;
 	}
@@ -90,7 +90,6 @@ void	tests(char *str, t_ert(*launcher)(t_token *), char *msg, bool silence)
 		printf("%s\n", msg);
 	printf("pour ->%s<-\n", str);
 	t_token *tok = token_lst_constructor(ft_strdup(str));
-	display_tokens(tok);
 	if (launcher(tok) == SUCCESS)
 		display_tokens(tok);
 	token_lst_clear(tok);
@@ -98,10 +97,10 @@ void	tests(char *str, t_ert(*launcher)(t_token *), char *msg, bool silence)
 }
 void	tests_double_quote(void)
 {
-	tests("\"test", test_double_quote_launcher, "erreure ligne non terminee", SILENCIEUX);
-	tests("\"test\"", test_double_quote_launcher, "cas normale les char entre quotes sont preserve mais pas les quotes", SILENCIEUX);
-	tests("\"t\\e\\\"st\"", test_double_quote_launcher, "slash avant la double quote doit preserver puis partir", SILENCIEUX);
-	tests("\"$\"", test_double_quote_launcher, "le $ ne peut pas etre preserve par les double quote", SILENCIEUX);
+	tests("\"test", test_double_quote_launcher, "erreure ligne non terminee", B);
+	tests("\"test\"", test_double_quote_launcher, "cas normale les char entre quotes sont preserve mais pas les quotes", B);
+	tests("\"t\\e\\\"st\"", test_double_quote_launcher, "slash avant la double quote doit preserver puis partir", B);
+	tests("\"$\"", test_double_quote_launcher, "le $ ne peut pas etre preserve par les double quote", B);
 }
 
 void	tests_simple_quote(void)
@@ -127,7 +126,7 @@ void	test_escaping(char *str)
 void	tests_preserves(void)
 {
 	tests("", preserve_token_lst, "chaine vide", B);
-	tests("\\bonjour a \"toi $petit \\$NOM et toi $USER\"", preserve_token_lst,NULL, B);
+	tests("\\bonjour a \'toi $petit \\$NOM et toi $USER\'", preserve_token_lst,NULL, B);
 }///
 
 int main(int ac, char **av) {

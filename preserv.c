@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 03:57:05 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/24 06:51:45 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/24 07:49:04 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,15 @@ t_ert	preserve_token_lst(t_token *token)
 
 	pin = token->next;
 	int i = 0;
-	while (pin->token != EOL)
+
+	while (pin != NULL && pin->token != EOL)
 	{
-		printf("%d:", i);
-		display_t_emt(pin);
-		printf("\n");
-		i++;
-		act[_code_from(pin->sign_char)](token, pin, &token);
+		printf("%d : <%c>", i++, pin->sign_char);
+		if (act[_code_from(pin->sign_char)](token, pin, &token) != SUCCESS)
+			return (FAILURE);
 		token = token->next;
-		pin = token->next;
+		if (token)
+			pin = token->next;
 	}
 	return (SUCCESS);
 }
@@ -46,8 +46,10 @@ static size_t _code_from(char code)
 	char 		*tmp;
 
 	tmp = ft_strchr(charset, code);
+	printf("indx of %ld \n", tmp - charset);
 	if (tmp == NULL)
 		return (DONO_INDX);
+
 	return (tmp - charset);
 }
 

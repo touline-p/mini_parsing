@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 04:03:32 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/24 06:15:03 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/24 08:23:05 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,15 @@ static t_ert	_squoting_process_ep(void);
 t_ert	squoting_process(t_token *voided, t_token *token, t_token **end_of_quot_pt)
 {
 	(void)voided;
+	token = token->next;
 	while(token->token != EOL && token->sign_char != '\'')
 	{
 		token->esec = SECURED;
 		token = token->next;
 	}
+	*end_of_quot_pt = token;
 	if (token->token == EOL)
 		return (_squoting_process_ep());
-	*end_of_quot_pt = token;
 	return (SUCCESS);
 }
 

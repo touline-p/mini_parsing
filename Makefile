@@ -21,7 +21,7 @@ FLAGS := -Wall -Werror -Wextra -g3 #-D SILENCIEUX=false
 OBJS := $(addprefix obj/, $(FILE:.c=.o))
 
 test	: $(NAME)
-	$(NAME)	1
+	valgrind $(NAME) 1
 
 all : $(NAME)
 
