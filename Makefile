@@ -36,3 +36,4 @@ fclean	: clean
 clean :
 	rm -rf obj
 	mkdir obj
+	make -C libft fclean
