@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/24 04:18:48 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/24 04:51:02 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,27 @@ void	test_squote(t_token *tok)
 			return ;
 		tok = tok->next;
 	}
-	(void)(tok);
+}
+
+void	test_double_quote_launcher(t_token *tok)
+{
+	while (tok->token != EOL)
+	{
+		if ((tok->sign_char == '\"')
+			&& dquoting_process(tok->next, &tok) != SUCCESS)
+			return ;
+		tok = tok->next;
+	}
+}
+
+void	tests_double_quote(void)
+{
+	t_token *tok;
+	printf("when starting with double quote\n->\"test<-\n");
+	tok = token_lst_constructor(ft_strdup("\"test"));
+	test_double_quote_launcher(tok);
+	display_tokens(tok);
+	token_lst_clear(tok);
 }
 
 void	test_preserv(char *str)
@@ -100,6 +120,6 @@ int main(int ac, char **av) {
 	test_display_unsecured(&hy);
 	test_preserv(av[1]);
 	test_escaping(av[1]);
-
+	tests_double_quote();
 	return (0);
 }
