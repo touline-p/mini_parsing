@@ -13,7 +13,7 @@
 #include "mini_parsing.h"
 
 static t_ert	_escaping_chars_ep(void);
-static t_ert	escape_process(t_token *last_pt, t_token *tok);
+t_ert	escape_process(t_token *last_pt, t_token *tok);
 
 ////TO DO cette fonction parcours toute la chaine pour tout les escape
 //// Ce n'est pas le bon fonctionnement.
@@ -34,7 +34,7 @@ t_ert	escaping_chars(t_token *tok)
 	return (SUCCESS);
 }
 
-static t_ert	escape_process(t_token *last_pt, t_token *tok)
+t_ert	escape_process(t_token *last_pt, t_token *tok)
 {
 	if (tok->token != LETTER
 		|| tok->sign_char != '\\'

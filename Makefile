@@ -7,6 +7,7 @@ FILE := main.c \
 	token_lst_utils.c \
 	escaping_chars.c \
 	preserv.c \
+	simple_quoting.c \
 
 
 HEADERS	:= basic_enums.h \
@@ -14,7 +15,7 @@ HEADERS	:= basic_enums.h \
 	test_mini.h \
 	libft/libft.h
 
-FLAGS := -Wall -Werror -Wextra
+FLAGS := -Wall -Werror -Wextra -g3
 
 OBJS := $(addprefix obj/, $(FILE:.c=.o))
 

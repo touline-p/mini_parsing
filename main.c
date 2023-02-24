@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/24 02:43:53 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/24 04:18:48 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,24 @@ void	test_display_unsecured(t_token *hy)
 	display_tokens(hy);
 }
 
+void	test_squote(t_token *tok)
+{
+	while (tok->token != EOL)
+	{
+		if (tok->sign_char == '\''
+			&& squoting_process(tok->next, &tok) != SUCCESS)
+			return ;
+		tok = tok->next;
+	}
+	(void)(tok);
+}
+
 void	test_preserv(char *str)
 {
-	printf("all chars between quotes must be protected\n->%s<-\n", str);
+	printf("all chars between simple quotes must be protected\n->%s<-\n", str);
 	str = ft_strdup(str);
 	t_token *tok = token_lst_constructor(str);
-	preserv(tok);
+	test_squote(tok);
 	display_tokens(tok);
 	token_lst_clear(tok);
 }
