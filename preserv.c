@@ -6,15 +6,12 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 03:57:05 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/24 08:53:44 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/26 19:37:49 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_parsing.h"
 
-#define ESCP_INDX 0
-#define SQOT_INDX 1
-#define DQOT_INDX 2
 #define DONO_INDX 3
 
 static size_t	_code_from(char code);
