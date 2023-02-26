@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:47:29 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/26 02:52:25 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/26 17:31:44 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ t_ert	squoting_process(t_token *voided, t_token *token, t_token **end_of_quot_pt
 
 t_token	*split_toklst_on_meta(t_token *tok);
 t_token	*regroup_meta(t_token *tok);
+t_token	*split_on_meta(t_token *tok);
 
 #endif //MINI_PARSING_MINI_PARSING_H

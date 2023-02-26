@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:58:54 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/26 04:40:25 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/26 17:38:55 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,26 @@
 # include "mini_parsing.h"
 
 
-void	display_tokens(t_token *token_lst)
-{
-	while (token_lst != NULL)
+void	display_tokens(t_token *token_lst) {
+	t_token *next_block;
+
+	while (token_lst)
 	{
-		display_t_emt(token_lst);
-		token_lst = token_lst->next;
+		next_block = token_lst->next_word;
+		while (token_lst != NULL)
+		{
+			display_t_emt(token_lst);
+			token_lst = token_lst->next;
+		}
+		printf("\n");
+		token_lst = next_block;
 	}
 	printf("\n");
 }
 
 void	display_t_emt(t_token *token)
 {
-	const char	*msgarr[] = {"start", "pipe_", "_and_", "fd_in", "fd_ot", "_or__", "ifnot", "hrdoc", "appnd", "lfpar", "rtpar", "_ltr_", "smcln", "end_l", "_str_"};
+	const char	*msgarr[] = {"start", "pipe_", "_and_", "fd_in", "fd_ot", "_or__", "ifnot", "hrdoc", "appnd", "lfpar", "rtpar", "smcln", "_ltr_","end_l", "_str_"};
 	char		*msg;
 
 	if (token->token == LETTER) {

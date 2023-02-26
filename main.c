@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/26 03:18:39 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/26 17:33:16 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,7 @@ void	tests_meta_split(t_token *token_lst, t_token*(*launcher)(t_token *), char *
 
 #define TLC(x) token_lst_constructor(ft_strdup(x))
 
-void	tests_split_on_meta(void)
+void	tests_id_meta(void)
 {
 	tests_meta_split(TLC("no metachar"), split_toklst_on_meta, NULL, B);
 	tests_meta_split(TLC("just a | metachar"),split_toklst_on_meta, NULL, B);
@@ -154,7 +154,15 @@ void	tests_metachar_groupment()
 {
 	tests_meta_split(TMG_M("no metachar"), regroup_meta, NULL, B);
 	tests_meta_split(TMG_M("||j;fk&<>()"), regroup_meta, NULL, B);
+	tests_meta_split(TMG_M("||&&>><<"), regroup_meta, NULL, B);
+	tests_meta_split(TMG_M("|||&&&>>><<<"), regroup_meta, NULL, B);
+}
 
+#define TMS_M(x) regroup_meta(TMG_M(x))
+
+void	tests_metachar_split()
+{
+	tests_meta_split(TMS_M("echo hey | <ah  echo oui | cat Makefile > but"), split_on_meta, "pipe et commande", B);
 
 }
 
@@ -179,7 +187,8 @@ int main() {
 
 	//tests_preserves();
 	//tests_split_on_meta();
-	tests_split_on_meta();
+	tests_id_meta();
 	tests_metachar_groupment();
+	tests_metachar_split();
 	return (0);
 }

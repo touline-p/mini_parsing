@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:57:21 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/26 02:31:29 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/26 17:33:52 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_token	*token_constructor(t_emt emt, char msg)
 	new->sign_char = msg;
 	new->next = NULL;
 	new->esec = UNSECURED;
-	new->sub_token = NULL;
+	new->next_word = NULL;
 	return (new);
 }
 

@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:42:21 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/26 04:39:13 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/26 17:24:54 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ typedef struct	s_token
 	char 			sign_char;
 	t_esec			esec;
 	struct s_token	*next;
-	struct s_token	*sub_token;
+	struct s_token	*next_word;
 }	t_token;
 
 

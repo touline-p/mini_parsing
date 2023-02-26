@@ -10,6 +10,7 @@ FILE := main.c \
 	simple_quoting.c \
 	double_quoting.c \
 	split_toklst_on_meta.c \
+	split_on_meta.c \
 
 
 HEADERS	:= basic_enums.h \
