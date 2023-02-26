@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/24 08:47:44 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/26 01:05:34 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,34 +121,51 @@ void	test_escaping(char *str)
 	token_lst_clear(tok);
 }
 
-void	tests_split_on_meta(void);
+void	tests_meta_split(t_token *token_lst, t_ert(*launcher)(t_token *), char *msg, bool silence)
+{
+	if (silence)
+		return;
+	if (msg)
+		printf("%s\n", msg);
+	printf("pour");
+	display_tokens(token_lst);
+	launcher(token_lst);
+	display_tokens(token_lst);
+	token_lst_clear(token_lst);
+}
+
+#define TLC(x) token_lst_constructor(x)
+
+void	tests_split_on_meta(void)
+{
+	tests_meta_split(TLC("no metachar"), split_toklst_on_meta, NULL, B);
+	tests_meta_split(TLC("just a | metachar"),split_toklst_on_meta, NULL, B);
+	tests_meta_split(TLC("just a & metachar"),split_toklst_on_meta, NULL, B);
+	tests_meta_split(TLC("just a ( metachar"),split_toklst_on_meta, NULL, B);
+	tests_meta_split(TLC("just a ) metachar"),split_toklst_on_meta, NULL, B);
+	tests_meta_split(TLC(""),split_toklst_on_meta, "nothing", B);
+	tests_meta_split(TLC("||"),split_toklst_on_meta, "Only pipes", B);
+}
 
 void	tests_preserves(void)
 {
+	t_token hy;
+	hy.esec = SECURED;
+	hy.next = NULL;
+	hy.sign_char = 'h';
+	hy.token = LETTER;
+	test_display_secured(&hy);
+	hy.esec = UNSECURED;
+	test_display_unsecured(&hy);
+	test_escaping("iescape:\\t: i don t ::\n");
+	tests_double_quote();
+	tests_simple_quote();
 	tests("", preserve_token_lst, "chaine vide", B);
 	tests("\\bonjour a \\\'toi $petit \\a$NOM et toi $USER\\\'", preserve_token_lst,NULL, B);
 }
 
-int main(int ac, char **av) {
+int main() {
 
-	if (ac != 2)
-		return (0);
-	if (SILENCIEUX == false) {
-		test1();
-		char *str = ft_strdup(av[1]);
-		test_line(str);
-		t_token hy;
-		hy.esec = SECURED;
-		hy.next = NULL;
-		hy.sign_char = 'h';
-		hy.token = LETTER;
-		test_display_secured(&hy);
-		hy.esec = UNSECURED;
-		test_display_unsecured(&hy);
-		test_escaping(av[1]);
-	}
-	tests_double_quote();
-	tests_simple_quote();
 	tests_preserves();
 	return (0);
 }
