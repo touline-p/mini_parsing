@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:58:54 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/26 17:38:55 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/26 19:17:23 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 # include "mini_parsing.h"
 
 
-void	display_tokens(t_token *token_lst) {
+void	display_tokens(t_token *token_lst)
+{
 	t_token *next_block;
 
 	while (token_lst)
@@ -38,7 +39,7 @@ void	display_tokens(t_token *token_lst) {
 
 void	display_t_emt(t_token *token)
 {
-	const char	*msgarr[] = {"start", "pipe_", "_and_", "fd_in", "fd_ot", "_or__", "ifnot", "hrdoc", "appnd", "lfpar", "rtpar", "smcln", "_ltr_","end_l", "_str_"};
+	const char	*msgarr[] = {"start", "pipe_", "_and_", "fd_in", "fd_ot", "_or__", "ifnot", "hrdoc", "appnd", "lfpar", "rtpar", "smcln", "space", "_tab_", "_ltr_","end_l", "_str_"};
 	char		*msg;
 
 	if (token->token == LETTER) {

@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 01:07:01 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/26 04:31:42 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/26 19:11:14 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_token *split_toklst_on_meta(t_token *tok)
 	t_token *tmp;
 
 	tmp = tok;
-	tok = tok->next;
 	while (tok && tok->token != EOL)
 	{
 		if (tok->esec == UNSECURED)
@@ -33,7 +32,7 @@ t_token *split_toklst_on_meta(t_token *tok)
 static	void	_get_signal_from_char(char sign_char, t_emt *emt_pt)
 {
 	const t_emt	emt_arr[] = {PIPE, AMPERSAND, CHEVRON_IN, CHEVRON_OT, \
-						O_PRTSS, C_PRTSS, SEMICOLON};
+						O_PRTSS, C_PRTSS, SEMICOLON, SPACE};
 	const char 	*metachar_set = METACHAR_SET;
 	char		*signal;
 

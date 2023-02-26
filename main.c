@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/26 17:33:16 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/26 19:13:33 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,15 +123,18 @@ void	test_escaping(char *str)
 
 void	tests_meta_split(t_token *token_lst, t_token*(*launcher)(t_token *), char *msg, bool silence)
 {
+	t_token *mem;
+
+	mem = token_lst;
 	if (silence)
-		return;
+		return (token_lst_clear(mem));
 	if (msg)
 		printf("%s\n", msg);
 	printf("\npour\n");
 	display_tokens(token_lst);
 	launcher(token_lst);
 	display_tokens(token_lst);
-	token_lst_clear(token_lst);
+	token_lst_clear(mem);
 	printf("\n");
 }
 
@@ -162,7 +165,8 @@ void	tests_metachar_groupment()
 
 void	tests_metachar_split()
 {
-	tests_meta_split(TMS_M("echo hey | <ah  echo oui | cat Makefile > but"), split_on_meta, "pipe et commande", B);
+	tests_meta_split(TMS_M("a"), split_on_meta, "pipe et commande", B);
+	tests_meta_split(TMS_M("echo bonjour | cat -e > outfile"), split_on_meta, "pipe et commande", B);
 
 }
 
@@ -183,6 +187,13 @@ void	tests_preserves(void)
 	//tests("\\bonjour a \\\'toi $petit \\a$NOM et toi $USER\\\'", preserve_token_lst,NULL, B);
 }
 
+t_token	*tests_get_next_emt()
+{
+	tests_meta_split(TMG_M("ihih"), get_next_emt, NULL, B);
+
+	return (NULL);
+}
+
 int main() {
 
 	//tests_preserves();
@@ -190,5 +201,6 @@ int main() {
 	tests_id_meta();
 	tests_metachar_groupment();
 	tests_metachar_split();
+	tests_get_next_emt();
 	return (0);
 }

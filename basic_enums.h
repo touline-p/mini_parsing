@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:42:21 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/26 17:24:54 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/26 19:20:02 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef enum	e_return_status
 # define STRT_CHR -1
 # define EOSTR 0
 
-# define  METACHAR_SET "|&<>();"
+# define  METACHAR_SET "|&<>(); "
 typedef enum 	e_token_minishell
 {
 	START = 0,
@@ -42,9 +42,11 @@ typedef enum 	e_token_minishell
 	O_PRTSS = 9,
 	C_PRTSS = 10,
 	SEMICOLON = 11,
-	LETTER = 12,
-	EOL = 13,
-	STRING = 14
+	SPACE = 12,
+	TABULATION = 13,
+	LETTER = 14,
+	EOL = 15,
+	STRING = 16
 }	t_emt;
 
 typedef enum  e_secured
