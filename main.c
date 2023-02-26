@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/26 19:13:33 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/26 20:34:46 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,10 +105,10 @@ void	tests_double_quote(void)
 
 void	tests_simple_quote(void)
 {
-	tests("\'test\'", test_squote_launcher, "cas normal les char entre quotes sont preserve mais pas les quotes", SILENCIEUX);
-	tests("\'test", test_squote_launcher, "cas normal les char entre quotes sont preserve mais pas les quotes", SILENCIEUX);
-	tests("\'\'te\'st\'", test_squote_launcher, "seul les char entre quotes sont preserve", SILENCIEUX);
-	tests("\'te\'st", test_squote_launcher, "seul les char entre quotes sont preserve", SILENCIEUX);
+	tests("\'test\'", test_squote_launcher, "cas normal les char entre quotes sont preserve mais pas les quotes", B);
+	tests("\'test", test_squote_launcher, "cas normal les char entre quotes sont preserve mais pas les quotes", B);
+	tests("\'\'te\'st\'", test_squote_launcher, "seul les char entre quotes sont preserve", B);
+	tests("\'te\'st", test_squote_launcher, "seul les char entre quotes sont preserve", B);
 }
 
 void	test_escaping(char *str)
@@ -181,10 +181,10 @@ void	tests_preserves(void)
 	hy.esec = UNSECURED;
 	test_display_unsecured(&hy);
 	test_escaping("iescape:\\t: i don t ::\n");*/
-	//tests_double_quote();
-	//tests_simple_quote();
-	//tests("", preserve_token_lst, "chaine vide", B);
-	//tests("\\bonjour a \\\'toi $petit \\a$NOM et toi $USER\\\'", preserve_token_lst,NULL, B);
+	tests_double_quote();
+	tests_simple_quote();
+	tests("", preserve_token_lst, "chaine vide", B);
+	tests("\\bonjour \" a t\"ous", preserve_token_lst,NULL, B);
 }
 
 t_token	*tests_get_next_emt()
@@ -194,13 +194,40 @@ t_token	*tests_get_next_emt()
 	return (NULL);
 }
 
+void	launcher(char *str)
+{
+	t_token *token;
+
+	printf("Pour %s \n", str);
+	token = TLC(str);
+	display_tokens(token);
+	preserve_token_lst(token);
+	printf("preservation\n");
+	display_tokens(token);
+	printf("identification\n");
+	split_toklst_on_meta(token);
+	display_tokens(token);
+	printf("split on them\n");
+	split_on_meta(token);
+	display_tokens(token);
+	token_lst_clear(token);
+}
+
+void	tests_str_to_split_token()
+{
+	launcher("");
+	launcher("bonjou\"r a t\"ous");
+	launcher("bonjou\"r a $USER\" tous");
+}
+
 int main() {
 
-	//tests_preserves();
+	tests_preserves();
 	//tests_split_on_meta();
-	tests_id_meta();
-	tests_metachar_groupment();
-	tests_metachar_split();
-	tests_get_next_emt();
+//	tests_id_meta();
+//	tests_metachar_groupment();
+//	tests_metachar_split();
+//	tests_get_next_emt();
+	tests_str_to_split_token();
 	return (0);
 }

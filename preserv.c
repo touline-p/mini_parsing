@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 03:57:05 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/26 19:37:49 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/26 20:04:09 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_ert	preserve_token_lst(t_token *token)
 	pin = token->next;
 	while (pin != NULL && pin->token != EOL)
 	{
+		display_t_emt(pin); printf("\n");
 		if (act[_code_from(pin->sign_char)](token, pin, &token) != SUCCESS)
 			return (FAILURE);
 		token = token->next;
