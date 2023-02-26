@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/26 01:05:34 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/26 03:18:39 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,20 +121,21 @@ void	test_escaping(char *str)
 	token_lst_clear(tok);
 }
 
-void	tests_meta_split(t_token *token_lst, t_ert(*launcher)(t_token *), char *msg, bool silence)
+void	tests_meta_split(t_token *token_lst, t_token*(*launcher)(t_token *), char *msg, bool silence)
 {
 	if (silence)
 		return;
 	if (msg)
 		printf("%s\n", msg);
-	printf("pour");
+	printf("\npour\n");
 	display_tokens(token_lst);
 	launcher(token_lst);
 	display_tokens(token_lst);
 	token_lst_clear(token_lst);
+	printf("\n");
 }
 
-#define TLC(x) token_lst_constructor(x)
+#define TLC(x) token_lst_constructor(ft_strdup(x))
 
 void	tests_split_on_meta(void)
 {
@@ -144,12 +145,22 @@ void	tests_split_on_meta(void)
 	tests_meta_split(TLC("just a ( metachar"),split_toklst_on_meta, NULL, B);
 	tests_meta_split(TLC("just a ) metachar"),split_toklst_on_meta, NULL, B);
 	tests_meta_split(TLC(""),split_toklst_on_meta, "nothing", B);
-	tests_meta_split(TLC("||"),split_toklst_on_meta, "Only pipes", B);
+	tests_meta_split(TLC("||j;fk&<>()"),split_toklst_on_meta, "Only metachar", B);
+}
+
+#define TMG_M(x) split_toklst_on_meta(TLC(x))
+
+void	tests_metachar_groupment()
+{
+	tests_meta_split(TMG_M("no metachar"), regroup_meta, NULL, B);
+	tests_meta_split(TMG_M("||j;fk&<>()"), regroup_meta, NULL, B);
+
+
 }
 
 void	tests_preserves(void)
 {
-	t_token hy;
+	/*t_token hy;
 	hy.esec = SECURED;
 	hy.next = NULL;
 	hy.sign_char = 'h';
@@ -157,15 +168,18 @@ void	tests_preserves(void)
 	test_display_secured(&hy);
 	hy.esec = UNSECURED;
 	test_display_unsecured(&hy);
-	test_escaping("iescape:\\t: i don t ::\n");
-	tests_double_quote();
-	tests_simple_quote();
-	tests("", preserve_token_lst, "chaine vide", B);
-	tests("\\bonjour a \\\'toi $petit \\a$NOM et toi $USER\\\'", preserve_token_lst,NULL, B);
+	test_escaping("iescape:\\t: i don t ::\n");*/
+	//tests_double_quote();
+	//tests_simple_quote();
+	//tests("", preserve_token_lst, "chaine vide", B);
+	//tests("\\bonjour a \\\'toi $petit \\a$NOM et toi $USER\\\'", preserve_token_lst,NULL, B);
 }
 
 int main() {
 
-	tests_preserves();
+	//tests_preserves();
+	//tests_split_on_meta();
+	tests_split_on_meta();
+	tests_metachar_groupment();
 	return (0);
 }

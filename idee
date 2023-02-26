@@ -28,4 +28,13 @@ sinon il est supprime
 si fail glob est active il y a une erreure et la command ne s'exec pas
 . et .. ne sont jamais matched
 
+
+
+liste de commande
+
+les expansions :
+se font dans l'ordre suivant
+les {}
+le tilde
+les parametres du SHELL
 apres expansion on supprime les \ ' et " qui ne resulte pas d'une expansion

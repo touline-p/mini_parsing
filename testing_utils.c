@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:58:54 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/24 08:52:25 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/26 04:40:25 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,40 +31,23 @@ void	display_tokens(t_token *token_lst)
 
 void	display_t_emt(t_token *token)
 {
-	char	*msg;
-	int 	i = 0;
+	const char	*msgarr[] = {"start", "pipe_", "_and_", "fd_in", "fd_ot", "_or__", "ifnot", "hrdoc", "appnd", "lfpar", "rtpar", "_ltr_", "smcln", "end_l", "_str_"};
+	char		*msg;
 
-	if (token->token == EOL)
-		msg = ft_strdup("eol");
 	if (token->token == LETTER) {
+		msg = ft_strdup("     ");
 		if (token->esec == SECURED)
-			i += 1;
-		msg = malloc(2 + i);
-		if (token->esec == SECURED)
-			msg[0] = '\\';
-		msg[i] = token->sign_char;
-		msg[i + 1] = 0;
+		{
+			msg[0] = '_';
+			msg[1] = '_';
+			msg[3] = '_';
+			msg[4] = '_';
+		}
+		msg[2] = token->sign_char;
 	}
-	else if (token->token == START)
-		msg = ft_strdup("start");
-	else if (token->token == CHEVRON_IN)
-		msg = ft_strdup("chevron in");
-	else if (token->token == CHEVRON_OT)
-		msg = ft_strdup("chevron out");
-	else if (token->token == O_PRTSS)
-		msg = ft_strdup("p_ouvrante");
-	else if (token->token == C_PRTSS)
-		msg = ft_strdup("p_fermante");
-	else if (token->token == PIPE)
-		msg = ft_strdup("pipe");
-	else if (token->token == AMPERSAND)
-		msg = ft_strdup("esperluette");
-	else if (token->token == APPENDS)
-		msg = ft_strdup("append in");
-	else if (token->token == HERE_DOC)
-		msg = ft_strdup("here doc");
-
-	printf("<%s>", msg);
+	else
+		msg = ft_strdup((char *)msgarr[token->token]);
+	printf("<%5.5s>", msg);
 	free(msg);
 }
 
