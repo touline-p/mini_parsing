@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/26 20:34:46 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/02/28 21:07:26 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_ert 	test_squote_launcher(t_token *tok)
 	while (tok->token != EOL)
 	{
 		if (tok->sign_char == '\''
-			&& squoting_process(NULL, tok->next, &tok) != SUCCESS)
+			&& squoting_process(NULL, tok, &tok) != SUCCESS)
 			return (FAILURE);
 		tok = tok->next;
 	}
@@ -218,6 +218,7 @@ void	tests_str_to_split_token()
 	launcher("");
 	launcher("bonjou\"r a t\"ous");
 	launcher("bonjou\"r a $USER\" tous");
+	launcher("bonjou\'r a $USER\' tous");
 }
 
 int main() {
