@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 14:11:04 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/26 02:33:29 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/05 12:59:56 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@ t_token	*token_lst_constructor(char *str)
 {
 	t_token	*token;
 	t_token	*pin;
-	char 	*tmp;
 
 	token = token_constructor(START, STRT_CHR);
 	pin = token;
-	tmp = str;
 	while (*str != EOSTR)
 	{
 		pin->next = token_constructor(LETTER, *str);
@@ -32,7 +30,6 @@ t_token	*token_lst_constructor(char *str)
 		str++;
 	}
 	pin->next = token_constructor(EOL, EOSTR);
-	free(tmp);
 	return (token);
 }
 

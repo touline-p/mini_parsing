@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/28 21:07:26 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/05 13:00:26 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ void	tests_meta_split(t_token *token_lst, t_token*(*launcher)(t_token *), char *
 	printf("\n");
 }
 
-#define TLC(x) token_lst_constructor(ft_strdup(x))
+#define TLC(x) token_lst_constructor(x)
 
 void	tests_id_meta(void)
 {
@@ -221,14 +221,119 @@ void	tests_str_to_split_token()
 	launcher("bonjou\'r a $USER\' tous");
 }
 
-int main() {
+void	launcher_expand(char *str, char **env)
+{
+	(void)env;
+	printf("for ->%s<-\n", str);
+	t_token *tok = token_lst_constructor(ft_strdup(str));
+	preserve_token_lst(tok);
+	split_toklst_on_meta(tok);
+	split_on_meta(tok);
+	display_tokens(tok);
+	//expand_dollars(tok, env);
+	token_lst_clear(tok);
+}
 
-	tests_preserves();
+void	tests_expands(char **env)
+{
+	launcher_expand("", env);
+	launcher_expand("bonjour a tous", env);
+	launcher_expand("echo $USER", env);
+}
+
+char *_get_env_variable(t_token *token, char **env);
+
+void	test_brick_expand_ln_get_env(char *search, char **env)
+{
+	t_token *tok = TLC(search);
+	t_token *pin = tok->next;
+	display_tokens(pin);
+	char	*answer = _get_env_variable(tok, env);
+	printf("i search %s i find %p\n", search, answer);
+	if (answer)
+		printf("%s\n", answer);
+	token_lst_clear(tok);
+}
+
+#define TBEG(x) x,env
+
+void	test_brick_expand_get_env(char **env)
+{
+	test_brick_expand_ln_get_env(TBEG("ceci"));
+	test_brick_expand_ln_get_env(TBEG("user"));
+	test_brick_expand_ln_get_env(TBEG("USER"));
+	test_brick_expand_ln_get_env(TBEG("PATH"));
+}
+
+void	test_substitute_for_env_variable_ln(char *str, char **env)
+{
+	(void)env;
+	t_token *tok = TLC(str);
+	t_token *pin = tok;
+
+	display_tokens(pin);
+
+	display_tokens(pin);
+	token_lst_clear(tok);
+}
+
+void	test_substitute_for_env_variable(char **env)
+{
+	test_substitute_for_env_variable_ln(TBEG("$USER a chamger"));
+}
+
+void	test_del_next_word_ln(char *str)
+{
+	t_token *tok = TLC(str);
+
+	display_tokens(tok);
+	del_next_word(tok);
+	display_tokens(tok);
+	token_lst_clear(tok);
+}
+
+void	test_del_next_word(void)
+{
+	test_del_next_word_ln("del this deviens this");
+	test_del_next_word_ln("del\" \"  this deviens this");
+}
+void	test_insert_str_in_tkn_lst_ln(char *str, char *inserting, t_esec essec)
+{
+	t_token	*tok = TLC(str);
+
+	display_tokens(tok);
+	insert_str_in_tkn_lst(tok, inserting, essec);
+	display_tokens(tok);
+	token_lst_clear(tok);
+}
+
+void	test_insert_str_in_tkn_lst(void)
+{
+	test_insert_str_in_tkn_lst_ln("super liste", "j'ai une",SECURED);
+}
+
+void	test_brick_expand(char **env)
+{
+	(void)env;
+	//test_brick_expand_get_env(env);
+	//test_del_next_word();
+	test_insert_str_in_tkn_lst();
+
+	//test_substitute_for_env_variable(env);
+}
+
+int main(int ac, char **av, char **env) {
+
+	(void)ac;
+	(void)av;
+	//tests_preserves();
 	//tests_split_on_meta();
 //	tests_id_meta();
-//	tests_metachar_groupment();
+	//tests_metachar_groupment();
 //	tests_metachar_split();
 //	tests_get_next_emt();
-	tests_str_to_split_token();
+	//tests_str_to_split_token();
+	//tests_expands(env);
+	test_brick_expand(env);
 	return (0);
 }

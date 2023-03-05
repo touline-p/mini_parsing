@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:47:29 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/26 18:27:39 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/05 12:41:16 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	token_lst_clear(t_token *trash);
 t_token	*token_constructor(t_emt emt, char msg);
 void	del_token(t_token *token);
 void	del_next_token(t_token *token);
+void	del_next_word(t_token *token);
+t_ert	insert_str_in_tkn_lst(t_token *token_lst, char *str, t_esec essec);
 
 /*** preserving ***/
 
@@ -48,8 +50,9 @@ t_token	*split_toklst_on_meta(t_token *tok);
 t_token	*regroup_meta(t_token *tok);
 t_token	*split_on_meta(t_token *tok);
 
+/*** expand on dollars ***/
 
-
+t_ert	expand_dollars(t_token *token_lst, char **env);
 
 
 

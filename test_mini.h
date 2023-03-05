@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:35:11 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/23 18:00:16 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/05 11:58:37 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ void	put_esec(t_token *tok);
 
 
 
+char *_get_env_variable(t_token *token, char **env);
 
 #endif
