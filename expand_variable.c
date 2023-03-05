@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 21:21:54 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/05 12:47:02 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/05 14:05:55 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,14 @@ t_ert	expand_dollars(t_token *token_lst, char **env)
 
 t_ert	_substitute_for_env_variable(t_token **last_token, char **env)
 {
-	(void)last_token; (void)env;
-	/*
-	char *variable_str;
+	char *variable_string;
 
-	variable_str = _get_env_variable((*last_token)->next, env);
-	del_next_word(pin);
-	if (insert_str_in_tkn_lst(token, variable_str, SECURED) != SUCCESS)
+	variable_string = _get_env_variable((*last_token)->next, env);
+	del_next_token(*last_token);
+	del_next_word(*last_token);
+	if (variable_string != NULL &&
+		insert_str_in_tkn_lst(*last_token, variable_string, SECURED) != SUCCESS)
 		return (MLC_ERR);
-	 */
 	return (SUCCESS);
 }
 
@@ -60,8 +59,10 @@ char *_get_env_variable(t_token *token, char **env)
 	char *variable_str;
 
 	variable_str = NULL;
+	display_tokens(token);
 	while (variable_str == NULL && *env)
 	{
+
 		variable_str = _check_for_env_variable(token->next, *env);
 		env++;
 	}
