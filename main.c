@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/05 13:00:26 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/05 13:46:21 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -265,6 +265,7 @@ void	test_brick_expand_get_env(char **env)
 	test_brick_expand_ln_get_env(TBEG("PATH"));
 }
 
+t_ert	_substitute_for_env_variable(t_token **last_token, char **env);
 void	test_substitute_for_env_variable_ln(char *str, char **env)
 {
 	(void)env;
@@ -272,7 +273,7 @@ void	test_substitute_for_env_variable_ln(char *str, char **env)
 	t_token *pin = tok;
 
 	display_tokens(pin);
-
+	_substitute_for_env_variable(&(tok->next), env);
 	display_tokens(pin);
 	token_lst_clear(tok);
 }
@@ -317,9 +318,9 @@ void	test_brick_expand(char **env)
 	(void)env;
 	//test_brick_expand_get_env(env);
 	//test_del_next_word();
-	test_insert_str_in_tkn_lst();
+	//test_insert_str_in_tkn_lst();
 
-	//test_substitute_for_env_variable(env);
+	test_substitute_for_env_variable(env);
 }
 
 int main(int ac, char **av, char **env) {
