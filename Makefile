@@ -15,6 +15,7 @@ FILE := main.c \
 	suppress_quotes.c \
 	instruction_block_tree_utils.c \
 	instruction_block_chain.c \
+	instruction_block_tree_debug.c \
 
 
 HEADERS	:= basic_enums.h \

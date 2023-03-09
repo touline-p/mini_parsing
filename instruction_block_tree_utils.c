@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 22:04:39 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/09 22:16:19 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/09 23:58:11 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ t_instruction_block_tree	*instruction_block_tree_constructor(void)
 	new->fd_in = -1;
 	new->fd_out = -1;
 	return (new);
+}
+
+t_ert	instruction_block_tree_constructor_on(t_instruction_block_tree **instr_pt)
+{
+	*instr_pt = instruction_block_tree_constructor();
+	if (*instr_pt == NULL)
+		return (MLC_ERR);
+	return (SUCCESS);
 }
 
 void	instruction_block_tree_destructor(t_instruction_block_tree *trash)

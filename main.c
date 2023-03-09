@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/09 23:36:56 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/09 23:53:39 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -360,7 +360,7 @@ void	tokenisation_ln(char *str, char **env)
 	regroup_meta(tok);
 	display_tokens(tok);
 	tree = token_lst_to_instruction_block_tree(tok, env);
-	display_instruction_block_tree(tree);
+	display_instruction_block_tree(tree, 0);
 	token_lst_clear(tok);
 }
 

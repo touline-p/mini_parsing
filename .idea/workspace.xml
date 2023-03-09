@@ -22,7 +22,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instruction_block_chain.c" beforeDir="false" afterPath="$PROJECT_DIR$/instruction_block_chain.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instruction_block_tree_debug.c" beforeDir="false" afterPath="$PROJECT_DIR$/instruction_block_tree_debug.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instruction_block_tree_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/instruction_block_tree_utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/libft.h" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini_parsing.h" beforeDir="false" afterPath="$PROJECT_DIR$/mini_parsing.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_mini.h" beforeDir="false" afterPath="$PROJECT_DIR$/test_mini.h" afterDir="false" />
@@ -89,7 +92,7 @@
       <workItem from="1678356096044" duration="101000" />
       <workItem from="1678356497678" duration="286000" />
       <workItem from="1678365630699" duration="3608000" />
-      <workItem from="1678381574160" duration="11235000" />
+      <workItem from="1678381574160" duration="12491000" />
     </task>
     <servers />
   </component>
