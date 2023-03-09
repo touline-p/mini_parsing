@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:42:21 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/09 22:06:32 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 00:21:43 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,18 @@ typedef struct	s_token
 {
 	t_emt			token;
 	char 			sign_char;
+	void			*content;
 	t_esec			esec;
 	struct s_token	*next;
 	struct s_token	*next_word;
 }	t_token;
+
+typedef struct s_string_token
+{
+	struct s_string_token	*next;
+	char					*content;
+	t_emt 					token;
+}	t_string_token;
 
 typedef struct	s_instruction_block_tree	t_instruction_block_tree;
 
