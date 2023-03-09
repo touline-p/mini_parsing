@@ -6,7 +6,7 @@
 /*   By: bpoumeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:23:19 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/23 18:01:38 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/09 23:45:44 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void		*ft_memdup(void *src, size_t ln);
 void		ft_swap(int *a, int *b);
 int			ft_is_overflowing(char *str);
 void		*ft_free_split(char **dst);
+void		t_print_split(char **split);
 char		*ft_strjoin_three(char *a, char *b, char *c);
 void		*per_n_ret(char *msg);
 int			is_from(char c, char *base);
