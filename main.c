@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/09 13:44:31 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/09 19:27:40 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,15 +69,10 @@ t_ert 	test_squote_launcher(t_token *tok)
 	return (SUCCESS);
 }
 
+t_ert	dquoting_process(t_token *last_token, t_token *token, t_token **end_of_quot_pt);
 t_ert 	test_double_quote_launcher(t_token *tok)
 {
-	while (tok->token != EOL)
-	{
-		if ((tok->sign_char == '\"')
-			&& dquoting_process(tok, NULL, &tok) != SUCCESS)
-			return (FAILURE);
-		tok = tok->next;
-	}
+	dquoting_process(tok, tok->next, &tok);
 	return (SUCCESS);
 }
 
@@ -89,7 +84,7 @@ void	tests(char *str, t_ert(*launcher)(t_token *), char *msg, bool silence)
 	if (msg)
 		printf("%s\n", msg);
 	printf("pour ->%s<-\n", str);
-	t_token *tok = token_lst_constructor(ft_strdup(str));
+	t_token *tok = token_lst_constructor(str);
 	if (launcher(tok) == SUCCESS)
 		display_tokens(tok);
 	token_lst_clear(tok);
@@ -194,7 +189,7 @@ t_token	*tests_get_next_emt()
 	return (NULL);
 }
 
-void	launcher(char *str)
+void	launcher(char *str, char **env)
 {
 	t_token *token;
 
@@ -204,6 +199,10 @@ void	launcher(char *str)
 	preserve_token_lst(token);
 	printf("preservation\n");
 	display_tokens(token);
+	expand_dollars(token, env);
+	printf("expansion\n");
+	display_tokens(token);
+
 	printf("identification\n");
 	split_toklst_on_meta(token);
 	display_tokens(token);
@@ -213,12 +212,12 @@ void	launcher(char *str)
 	token_lst_clear(token);
 }
 
-void	tests_str_to_split_token()
+void	tests_str_to_split_token(char **env)
 {
-	launcher("");
-	launcher("bonjou\"r a t\"ous");
-	launcher("bonjou\"r a $USER\" tous");
-	launcher("bonjou\'r a $USER\' tous");
+	launcher("", env);
+	launcher("bonjou\"r a t\"ous", env);
+	launcher("bonjou\"r a $USER\" tous", env);
+	launcher("bonjou\'r a $USER\' tous", env);
 }
 
 void	launcher_expand(char *str, char **env)
@@ -244,6 +243,10 @@ void	tests_expands(char **env)
 	launcher_expand("echo $USER", env);
 	printf("fourth test\n");
 	launcher_expand("echo $USR", env);
+	printf("fifth test\n");
+	launcher_expand("\"echo $USER\"", env);
+	printf("sixth\n");
+	launcher_expand("\'echo $USER\'", env);
 }
 
 char *_get_env_variable(t_token *token, char **env);
@@ -328,19 +331,43 @@ void	test_brick_expand(char **env)
 
 	test_substitute_for_env_variable(env);
 }
+void	suppress_quotes_ln(t_token *tok, char **env)
+{
+	(void)env;
+	display_tokens(tok);
+	preserve_token_lst(tok);
+	display_tokens(tok);
+	expand_dollars(tok, env);
+	split_toklst_on_meta(tok);
+	display_tokens(tok);
+	suppress_quotes(tok);
+	display_tokens(tok);
+	regroup_meta(tok);
+	display_tokens(tok);
+	split_on_meta(tok);
+	display_tokens(tok);
+	token_lst_clear(tok);
+}
+
+void	tests_suppress_quotes(char **env)
+{
+	suppress_quotes_ln(TLC(""), env);
+	suppress_quotes_ln(TLC("\"\""), env);
+	suppress_quotes_ln(TLC("hello || $test << hi"), env);
+}
 
 int main(int ac, char **av, char **env) {
 
 	(void)ac;
 	(void)av;
 	//tests_preserves();
-	//tests_split_on_meta();
-//	tests_id_meta();
+	//tests_id_meta();
 	//tests_metachar_groupment();
-//	tests_metachar_split();
-//	tests_get_next_emt();
-	//tests_str_to_split_token();
+	//tests_metachar_split();
+	//tests_get_next_emt();
 	//test_brick_expand(env);
-	tests_expands(env);
+	//tests_expands(env);
+	//tests_str_to_split_token(env);
+	tests_suppress_quotes(env);
 	return (0);
 }

@@ -12,6 +12,7 @@ FILE := main.c \
 	split_toklst_on_meta.c \
 	split_on_meta.c \
 	expand_variable.c \
+	suppress_quotes.c \
 
 
 HEADERS	:= basic_enums.h \
@@ -24,7 +25,7 @@ FLAGS := -Wall -Werror -Wextra -g3 #-D SILENCIEUX=false
 OBJS := $(addprefix obj/, $(FILE:.c=.o))
 
 test	: $(NAME)
-	valgrind --leak-check=full $(NAME) 1
+	valgrind --leak-check=full $(NAME) 
 
 all : $(NAME)
 

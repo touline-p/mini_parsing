@@ -20,9 +20,14 @@
   <component name="ChangeListManager">
     <list default="true" id="c6b97335-290a-4613-a513-4cdd787e1fcd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/double_quoting.c" beforeDir="false" afterPath="$PROJECT_DIR$/double_quoting.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/expand_variable.c" beforeDir="false" afterPath="$PROJECT_DIR$/expand_variable.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/testing_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/testing_utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_parsing.h" beforeDir="false" afterPath="$PROJECT_DIR$/mini_parsing.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preserv.c" beforeDir="false" afterPath="$PROJECT_DIR$/preserv.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/split_toklst_on_meta.c" beforeDir="false" afterPath="$PROJECT_DIR$/split_toklst_on_meta.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/suppress_quotes.c" beforeDir="false" afterPath="$PROJECT_DIR$/suppress_quotes.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +90,8 @@
       <workItem from="1677614002355" duration="972000" />
       <workItem from="1678356096044" duration="101000" />
       <workItem from="1678356497678" duration="286000" />
-      <workItem from="1678365630699" duration="241000" />
+      <workItem from="1678365630699" duration="3608000" />
+      <workItem from="1678381574160" duration="3913000" />
     </task>
     <servers />
   </component>

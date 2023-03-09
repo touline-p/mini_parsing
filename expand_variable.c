@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 21:21:54 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/09 13:41:49 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:44:16 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_ert	_substitute_for_env_variable(t_token **last_token, char **env)
 	del_next_token(*last_token);
 	del_next_word(*last_token);
 	if (variable_string != NULL &&
-		insert_str_in_tkn_lst(*last_token, variable_string, SECURED) != SUCCESS)
+		insert_str_in_tkn_lst(*last_token, variable_string, UNSECURED) != SUCCESS)
 		return (MLC_ERR);
 	return (SUCCESS);
 }

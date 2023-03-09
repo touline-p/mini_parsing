@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 03:57:05 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/28 21:08:21 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/09 18:40:37 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_ert	preserve_token_lst(t_token *token)
 	const t_preserv_act	act[] = {escape_process, squoting_process, dquoting_process, do_nothing};
 
 	pin = token->next;
-	while (pin != NULL && pin->token != EOL)
+	while (token->token != EOL)
 	{
 		if (act[_code_from(pin->sign_char)](token, pin, &token) != SUCCESS)
 			return (FAILURE);
