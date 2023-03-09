@@ -20,11 +20,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c6b97335-290a-4613-a513-4cdd787e1fcd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/basic_enums.h" beforeDir="false" afterPath="$PROJECT_DIR$/basic_enums.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/double_quoting.c" beforeDir="false" afterPath="$PROJECT_DIR$/double_quoting.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/expand_variable.c" beforeDir="false" afterPath="$PROJECT_DIR$/expand_variable.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preserv.c" beforeDir="false" afterPath="$PROJECT_DIR$/preserv.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/simple_quoting.c" beforeDir="false" afterPath="$PROJECT_DIR$/simple_quoting.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testing_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/testing_utils.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +59,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -84,6 +83,9 @@
       <workItem from="1677425028852" duration="430000" />
       <workItem from="1677427932395" duration="11974000" />
       <workItem from="1677614002355" duration="972000" />
+      <workItem from="1678356096044" duration="101000" />
+      <workItem from="1678356497678" duration="286000" />
+      <workItem from="1678365630699" duration="241000" />
     </task>
     <servers />
   </component>

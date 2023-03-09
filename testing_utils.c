@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:58:54 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/26 19:17:23 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:43:05 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	display_t_emt(t_token *token)
 	}
 	else
 		msg = ft_strdup((char *)msgarr[token->token]);
-	printf("<%5.5s>", msg);
+	printf("<%.5s>", msg);
 	free(msg);
 }
 

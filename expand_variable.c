@@ -6,40 +6,31 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 21:21:54 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/05 14:05:55 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:41:49 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_parsing.h"
 
-//static t_ert	_substitute_for_env_variable(t_token *token, char **env);
-//static char		*_get_env_variable(t_token *token, char **env);
-static char 	*_check_for_env_variable(t_token *tok, char *env);
-/*
+t_ert		_substitute_for_env_variable(t_token **token, char **env);
+char		*_get_env_variable(t_token *token, char **env);
+static char *_check_for_env_variable(t_token *tok, char *env);
+
 t_ert	expand_dollars(t_token *token_lst, char **env)
 {
 	t_token	*pin;
 
-	while (token_lst)
+	pin = token_lst->next;
+	while (pin->token != EOL)
 	{
-		pin = token_lst->next;
-		while (pin->sign_char != EOL)
-		{
-			if (pin->next->sign_char == '$'
-				&& pin->next->esec == UNSECURED
-				&& _substitute_for_env_variable(&pin->next, env) != SUCCESS)
-				return (MLC_ERR);
-			pin = pin->next;
-		}
-		if (pin->next_word->sign_char == '$'
-			&& pin->next_word->esec == UNSECURED
-			&& _substitute_for_env_variable(&pin->next_word, env))
-		token_lst = token_lst->next_word;
-
+		if (pin->next->sign_char == '$'
+			&& pin->next->esec == UNSECURED
+			&& _substitute_for_env_variable(&pin, env) != SUCCESS)
+			return (MLC_ERR);
+		pin = pin->next;
 	}
 	return (SUCCESS);
 }
- */
 
 t_ert	_substitute_for_env_variable(t_token **last_token, char **env)
 {
@@ -59,7 +50,6 @@ char *_get_env_variable(t_token *token, char **env)
 	char *variable_str;
 
 	variable_str = NULL;
-	display_tokens(token);
 	while (variable_str == NULL && *env)
 	{
 

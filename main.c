@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/05 14:02:10 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:44:31 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,20 +225,25 @@ void	launcher_expand(char *str, char **env)
 {
 	(void)env;
 	printf("for ->%s<-\n", str);
-	t_token *tok = token_lst_constructor(ft_strdup(str));
-	preserve_token_lst(tok);
-	split_toklst_on_meta(tok);
-	split_on_meta(tok);
+	t_token *tok = token_lst_constructor(str);
 	display_tokens(tok);
-	//expand_dollars(tok, env);
+	preserve_token_lst(tok);
+	display_tokens(tok);
+	expand_dollars(tok, env);
+	display_tokens(tok);
 	token_lst_clear(tok);
 }
 
 void	tests_expands(char **env)
 {
+	printf("first test\n");
 	launcher_expand("", env);
+	printf("second test\n");
 	launcher_expand("bonjour a tous", env);
+	printf("third test\n");
 	launcher_expand("echo $USER", env);
+	printf("fourth test\n");
+	launcher_expand("echo $USR", env);
 }
 
 char *_get_env_variable(t_token *token, char **env);
@@ -281,6 +286,7 @@ void	test_substitute_for_env_variable_ln(char *str, char **env)
 void	test_substitute_for_env_variable(char **env)
 {
 	test_substitute_for_env_variable_ln(TBEG("$USER a chamger"));
+	test_substitute_for_env_variable_ln(TBEG("$US\"ER\" a chamger"));
 }
 
 void	test_del_next_word_ln(char *str)
@@ -334,7 +340,7 @@ int main(int ac, char **av, char **env) {
 //	tests_metachar_split();
 //	tests_get_next_emt();
 	//tests_str_to_split_token();
-	//tests_expands(env);
-	test_brick_expand(env);
+	//test_brick_expand(env);
+	tests_expands(env);
 	return (0);
 }
