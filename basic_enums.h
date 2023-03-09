@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:42:21 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/02/28 21:09:34 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/09 21:55:19 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ typedef enum	e_return_status
 # define STRT_CHR -1
 # define EOSTR 0
 
-# define  METACHAR_SET "|&<>(); "
+# define METACHAR_SET "|&<>(); "
+# define IFS " \t\n"
 typedef enum 	e_token_minishell
 {
 	START = 0,
@@ -65,5 +66,12 @@ typedef struct	s_token
 	struct s_token	*next_word;
 }	t_token;
 
+typedef struct	s_instruction_block_tree
+{
+	int		fd_in;
+	int		fd_out;
+	char	*cmd;
+	char	**args;
+}	t_instruction_block_tree;
 
 #endif //MINI_PARSING_BASIC_ENUMS_H
