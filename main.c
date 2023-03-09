@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/09 19:27:40 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/09 23:36:56 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -349,11 +349,25 @@ void	suppress_quotes_ln(t_token *tok, char **env)
 	token_lst_clear(tok);
 }
 
-void	tests_suppress_quotes(char **env)
+void	tokenisation_ln(char *str, char **env)
 {
-	suppress_quotes_ln(TLC(""), env);
-	suppress_quotes_ln(TLC("\"\""), env);
-	suppress_quotes_ln(TLC("hello || $test << hi"), env);
+	t_token *tok;
+	t_instruction_block_tree *tree;
+	tok = TLC(str);
+	preserve_token_lst(tok);
+	expand_dollars(tok, env);
+	split_toklst_on_meta(tok);
+	regroup_meta(tok);
+	display_tokens(tok);
+	tree = token_lst_to_instruction_block_tree(tok, env);
+	display_instruction_block_tree(tree);
+	token_lst_clear(tok);
+}
+
+void	tests_tokenisation(char **env)
+{
+	tokenisation_ln("echo damn $USER", env);
+
 }
 
 int main(int ac, char **av, char **env) {
@@ -368,6 +382,6 @@ int main(int ac, char **av, char **env) {
 	//test_brick_expand(env);
 	//tests_expands(env);
 	//tests_str_to_split_token(env);
-	tests_suppress_quotes(env);
+	tests_tokenisation(env);
 	return (0);
 }

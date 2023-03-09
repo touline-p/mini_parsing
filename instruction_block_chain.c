@@ -6,34 +6,19 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:32:06 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/09 21:50:04 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/09 23:36:13 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "mini_parsing.h"
 
-static t_instr_blck_tree	*_get_next_block(t_token *tok);
 
 t_instruction_block_tree	*token_lst_to_instruction_block_tree( \
 		t_token *tok, \
 		char **env \
 		)
 {
-	t_instr_blck_tree	*tree;
-	t_token				*pin;
-
-	while (pin->token != EOL)
-	{
-		tree = _get_next_block(tok);
-	}
-	token_lst_clear(tok);
+	(void)tok;
+	(void)env;
+	return (NULL);
 }
-
-static t_instr_blck_tree	*_get_next_block(t_token *tok)
-{
-	t_instr_blck_tree	*block;
-
-	block = instruction_block_tree_constructor();
-
-}
-

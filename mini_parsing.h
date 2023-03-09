@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:47:29 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/09 18:44:25 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/09 23:34:08 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,10 @@ t_token	*get_next_emt(t_token *tok);
 
 
 
-
+void	instruction_block_tree_destructor(t_instruction_block_tree *trash);
+t_instruction_block_tree	*instruction_block_tree_constructor(void);
+t_instruction_block_tree	*token_lst_to_instruction_block_tree( \
+		t_token *tok, \
+		char **env \
+		);
 #endif //MINI_PARSING_MINI_PARSING_H

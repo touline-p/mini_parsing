@@ -13,6 +13,8 @@ FILE := main.c \
 	split_on_meta.c \
 	expand_variable.c \
 	suppress_quotes.c \
+	instruction_block_tree_utils.c \
+	instruction_block_chain.c \
 
 
 HEADERS	:= basic_enums.h \
