@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:42:21 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/09 21:55:19 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/09 22:06:32 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,16 @@ typedef struct	s_token
 	struct s_token	*next_word;
 }	t_token;
 
+typedef struct	s_instruction_block_tree	t_instruction_block_tree;
+
 typedef struct	s_instruction_block_tree
 {
-	int		fd_in;
-	int		fd_out;
-	char	*cmd;
-	char	**args;
+	t_instruction_block_tree	*next;
+	t_instruction_block_tree	*sub_block;
+	char						**args;
+	char						*cmd;
+	int							fd_in;
+	int							fd_out;
 }	t_instruction_block_tree;
 
 #endif //MINI_PARSING_BASIC_ENUMS_H

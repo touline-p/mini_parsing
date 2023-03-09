@@ -33,7 +33,7 @@ static t_instr_blck_tree	*_get_next_block(t_token *tok)
 {
 	t_instr_blck_tree	*block;
 
-	block = instr_blck_tree_constructor();
+	block = instruction_block_tree_constructor();
 
 }
 
