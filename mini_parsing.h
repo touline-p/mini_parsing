@@ -75,5 +75,8 @@ t_string_token *token_lst_to_str_token(t_token *tok);
 void	string_token_destructor(t_string_token *trash);
 void	cpy_token_lst_to_str(t_token *tok, char *str);
 
+/*** Block instruction ***/
+
+t_ert	str_token_to_instruction_block_tree_on(t_string_token *tok, t_instruction_block_tree **tree_pt);
 
 #endif //MINI_PARSING_MINI_PARSING_H

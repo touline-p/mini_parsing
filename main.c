@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 03:25:49 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 19:15:52 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -351,30 +351,8 @@ void	suppress_quotes_ln(t_token *tok, char **env)
 void	tokenisation_ln(char *str, char **env)
 {
 	t_token *tok;
+	t_string_token *str_tok;
 	t_instruction_block_tree *tree;
-	tok = TLC(str);
-	preserve_token_lst(tok);
-	expand_dollars(tok, env);
-	split_toklst_on_meta(tok);
-	regroup_meta(tok);
-	display_tokens(tok);
-//	tree = token_lst_to_instruction_block_tree(tok, env);
-	tree = NULL;
-	display_instruction_block_tree(tree, 0);
-	token_lst_clear(tok);
-}
-
-void	tests_tokenisation(char **env)
-{
-	tokenisation_ln("echo damn $USER", env);
-
-}
-
-void	tests_tok_to_str_tok_ln(char *str, char **env)
-{
-	t_token			*tok;
-	t_string_token	*str_tok;
-
 	tok = TLC(str);
 	preserve_token_lst(tok);
 	expand_dollars(tok, env);
@@ -383,13 +361,43 @@ void	tests_tok_to_str_tok_ln(char *str, char **env)
 	display_tokens(tok);
 	str_tok = token_lst_to_str_token(tok);
 	display_str_token(str_tok);
-	string_token_destructor(str_tok);
+	if (str_tok == NULL)
+		return ;
+	str_token_to_instruction_block_tree_on(str_tok, &tree);
+	display_instruction_block_tree(tree, 0);
+	instruction_block_tree_destructor(tree);
+}
+
+void	tests_tokenisation(char **env)
+{
+	tokenisation_ln("echo damn $USER", env);
+}
+
+void	tests_tok_to_str_tok_ln(char *str, char **env)
+{
+	t_token			*tok;
+	t_string_token	*str_tok;
+
+	printf("\nfor ->%s<-\n", str);
+	tok = TLC(str);
+	preserve_token_lst(tok);
+	expand_dollars(tok, env);
+	split_toklst_on_meta(tok);
+	regroup_meta(tok);
+	display_tokens(tok);
+	str_tok = token_lst_to_str_token(tok);
+	if (str_tok != NULL)
+	{
+		display_str_token(str_tok);
+		string_token_destructor(str_tok);
+	}
 }
 
 void	tests_tok_to_str_tok(char **env)
 {
 	tests_tok_to_str_tok_ln("", env);
 	tests_tok_to_str_tok_ln("bonjour a tous", env);
+	tests_tok_to_str_tok_ln("echo hi | cat > outfile", env);
 
 }
 
@@ -397,17 +405,17 @@ int main(int ac, char **av, char **env) {
 
 	(void)ac;
 	(void)av;
-	//tests_preserves();
-	//tests_id_meta();
-	//tests_metachar_groupment();
-	//tests_metachar_split();
-	//tests_get_next_emt();
-	//test_brick_expand(env);
-	//tests_expands(env);
-	//tests_str_to_split_token(env);
+	tests_preserves();
+	tests_id_meta();
+	tests_metachar_groupment();
+	tests_metachar_split();
+	tests_get_next_emt();
+	test_brick_expand(env);
+	tests_expands(env);
+	tests_str_to_split_token(env);
 
 	tests_tok_to_str_tok(env);
 
-	//tests_tokenisation(env);
+	tests_tokenisation(env);
 	return (0);
 }

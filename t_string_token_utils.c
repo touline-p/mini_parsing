@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 00:25:09 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 04:08:29 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 12:43:07 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,5 @@ void	cpy_token_lst_to_str(t_token *tok, char *str)
 		i++;
 		tok = tok->next;
 	}
-	printf("i: %d\n", i);
 	str[i] = 0;
 }

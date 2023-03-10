@@ -22,14 +22,14 @@
   <component name="ChangeListManager">
     <list default="true" id="c6b97335-290a-4613-a513-4cdd787e1fcd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/expand_variable.c" beforeDir="false" afterPath="$PROJECT_DIR$/expand_variable.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instruction_block_chain.c" beforeDir="false" afterPath="$PROJECT_DIR$/instruction_block_chain.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instruction_block_tree_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/instruction_block_tree_utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/ft_print_split.c" beforeDir="false" afterPath="$PROJECT_DIR$/libft/ft_print_split.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libft/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_parsing.c" beforeDir="false" afterPath="$PROJECT_DIR$/mini_parsing.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mini_parsing.h" beforeDir="false" afterPath="$PROJECT_DIR$/mini_parsing.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preserv.c" beforeDir="false" afterPath="$PROJECT_DIR$/preserv.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/str_token_debug.c" beforeDir="false" afterPath="$PROJECT_DIR$/str_token_debug.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/t_string_token_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/t_string_token_utils.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/token_lst_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/token_lst_utils.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/token_to_str_token.c" beforeDir="false" afterPath="$PROJECT_DIR$/token_to_str_token.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,11 +73,6 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="mini_parsing" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mini_parsing" TARGET_NAME="mini_parsing" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mini_parsing" RUN_TARGET_NAME="mini_parsing">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -107,7 +102,11 @@
       <workItem from="1678356497678" duration="286000" />
       <workItem from="1678365630699" duration="3608000" />
       <workItem from="1678381574160" duration="14786000" />
-      <workItem from="1678405336895" duration="9549000" />
+      <workItem from="1678405336895" duration="12632000" />
+      <workItem from="1678448481420" duration="1375000" />
+      <workItem from="1678451688083" duration="4479000" />
+      <workItem from="1678469711920" duration="705000" />
+      <workItem from="1678471866116" duration="313000" />
     </task>
     <servers />
   </component>

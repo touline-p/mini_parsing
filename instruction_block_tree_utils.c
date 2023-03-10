@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 22:04:39 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/09 23:58:11 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 19:16:18 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,5 @@ void	instruction_block_tree_destructor(t_instruction_block_tree *trash)
 	instruction_block_tree_destructor(trash->next);
 	ft_free_split(trash->args);
 	free(trash->cmd);
+	free(trash);
 }

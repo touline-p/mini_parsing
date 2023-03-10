@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 23:45:17 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/09 23:47:48 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 19:13:11 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 
 void	ft_print_split(char **split)
 {
+	if (split == NULL)
+	{
+		printf("Null\n");
+		return ;
+	}
 	while (*split)
 	{
 		if (write(1, *split, ft_strlen(*split)) == -1

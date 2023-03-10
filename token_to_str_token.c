@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 00:53:13 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 04:16:08 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 12:51:15 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ static t_ert	_get_str_token_on_and_reset_pin(t_string_token **str_tok_pt, t_toke
 
 static void		*_token_lst_to_str_token_ep(t_token *trash, t_string_token *trashy_string_token)
 {
-	(void)trash;
-	(void)trashy_string_token;
+	token_lst_clear(trash);
+	string_token_destructor(trashy_string_token);
 	return (NULL);
 }
 
@@ -74,13 +74,11 @@ static char	*_reset_pin_ret_string(t_token **pin_pt)
 	int 	len;
 
 	len = len_to_next_type(*pin_pt);
-	printf("%d\n", len);
 	new = malloc(len + 1);
 	if (new == NULL)
 		return (NULL);
 	cpy_token_lst_to_str(*pin_pt, new);
 	while (len--)
 		*pin_pt = (*pin_pt)->next;
-	printf("new - %s\n", new);
 	return (new);
 }
