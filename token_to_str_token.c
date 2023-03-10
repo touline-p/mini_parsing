@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 00:53:13 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 03:20:58 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 04:16:08 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,16 @@ t_string_token *token_lst_to_str_token(t_token *tok)
 
 static t_ert	_get_str_token_on_and_reset_pin(t_string_token **str_tok_pt, t_token **pin_pt)
 {
+	t_emt tmp;
+
 	if (string_token_creator_on(str_tok_pt) != SUCCESS)
 		return (FAILURE);
+	tmp = (*pin_pt)->token;
 	(*str_tok_pt)->content = _reset_pin_ret_string(pin_pt);
+	if (tmp == LETTER)
+		(*str_tok_pt)->token = STRING;
+	else
+		(*str_tok_pt)->token = tmp;
 	if (errno)
 	{
 		errno = SUCCESS;
@@ -67,10 +74,13 @@ static char	*_reset_pin_ret_string(t_token **pin_pt)
 	int 	len;
 
 	len = len_to_next_type(*pin_pt);
+	printf("%d\n", len);
 	new = malloc(len + 1);
 	if (new == NULL)
 		return (NULL);
 	cpy_token_lst_to_str(*pin_pt, new);
-	*pin_pt = *pin_pt + len;
+	while (len--)
+		*pin_pt = (*pin_pt)->next;
+	printf("new - %s\n", new);
 	return (new);
 }

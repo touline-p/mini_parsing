@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 02:23:05 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 03:25:49 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -389,6 +389,8 @@ void	tests_tok_to_str_tok_ln(char *str, char **env)
 void	tests_tok_to_str_tok(char **env)
 {
 	tests_tok_to_str_tok_ln("", env);
+	tests_tok_to_str_tok_ln("bonjour a tous", env);
+
 }
 
 int main(int ac, char **av, char **env) {

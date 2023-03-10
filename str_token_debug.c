@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 01:06:10 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 02:15:49 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 03:26:29 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	display_str_token(t_string_token *tok)
 			display_t_emt_string(tok);
 		tok = tok->next;
 	}
+	printf("\n");
 }
 
 void	display_t_emt_string(t_string_token *token)

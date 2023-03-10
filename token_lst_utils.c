@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:57:21 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 03:12:35 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 03:57:39 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,11 +132,16 @@ int		len_to_next_type(t_token *pin)
 {
 	int i;
 
-	i = 1;
-	while (pin->token == LETTER)
+	if (pin->token == LETTER)
 	{
-		pin = pin->next;
-		i++;
+		i = 0;
+		while (pin->token == LETTER)
+		{
+			pin = pin->next;
+			i++;
+		}
+		return (i);
 	}
-	return (i);
+	else
+		return (1);
 }

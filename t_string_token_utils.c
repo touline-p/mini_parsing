@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 00:25:09 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 03:24:44 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 04:08:29 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,14 @@ void	cpy_token_lst_to_str(t_token *tok, char *str)
 {
 	int i;
 
+	i = 0;
 	str[0] = tok->sign_char;
-	tok = tok->next;
-	i = 1;
 	while (tok->token == LETTER)
 	{
 		str[i] = tok->sign_char;
 		i++;
 		tok = tok->next;
 	}
+	printf("i: %d\n", i);
 	str[i] = 0;
 }
