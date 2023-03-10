@@ -6,7 +6,7 @@
 /*   By: bpoumeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:23:19 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/09 23:49:34 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 21:46:37 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,10 @@ int			ft_min(int a, int b);
 int			ft_max(int a, int b);
 
 t_ert		ft_atoi_on(const char *str, int *int_pt);
+
+/** Pipes utils **/
+
+void	close_pipe_arr(int **pipe_arr);
 
 /**	INT_ARR_UTILS **/
 size_t		int_arr_ret_min_indx(int *int_arr, size_t ln);

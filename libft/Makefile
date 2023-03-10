@@ -67,6 +67,7 @@ FILES	=	ft_atoi.c \
 	ft_lststr_to_str.c \
 	get_next_line.c \
 	ft_print_split.c \
+	close_pipe_arr.c \
 	
 HFILES	=	libft.h\
 
