@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:42:21 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 00:21:43 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 00:29:59 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ typedef enum 	e_token_minishell
 	LETTER = 14,
 	EOL = 15,
 	STRING = 16,
-	DOLLAR = 17
+	DOLLAR = 17,
+	NONE = 18
 }	t_emt;
 
 typedef enum  e_secured

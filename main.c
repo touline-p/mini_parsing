@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/09 23:53:39 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 01:45:55 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -340,7 +340,6 @@ void	suppress_quotes_ln(t_token *tok, char **env)
 	expand_dollars(tok, env);
 	split_toklst_on_meta(tok);
 	display_tokens(tok);
-	suppress_quotes(tok);
 	display_tokens(tok);
 	regroup_meta(tok);
 	display_tokens(tok);
@@ -359,7 +358,8 @@ void	tokenisation_ln(char *str, char **env)
 	split_toklst_on_meta(tok);
 	regroup_meta(tok);
 	display_tokens(tok);
-	tree = token_lst_to_instruction_block_tree(tok, env);
+//	tree = token_lst_to_instruction_block_tree(tok, env);
+	tree = NULL;
 	display_instruction_block_tree(tree, 0);
 	token_lst_clear(tok);
 }
@@ -368,6 +368,30 @@ void	tests_tokenisation(char **env)
 {
 	tokenisation_ln("echo damn $USER", env);
 
+}
+
+void	tests_tok_to_str_tok_ln(char *str, char **env)
+{
+	t_token			*tok;
+	t_string_token	*str_tok;
+
+	tok = TLC(str);
+	preserve_token_lst(tok);
+	expand_dollars(tok, env);
+	split_toklst_on_meta(tok);
+	regroup_meta(tok);
+	display_tokens(tok);
+	str_tok = token_lst_to_str_token(tok);
+	display_str_token(str_tok);
+	string_token_destructor(str_tok);
+	(void)str_tok;
+
+
+}
+
+void	tests_tok_to_str_tok(char **env)
+{
+	tests_tok_to_str_tok_ln("", env);
 }
 
 int main(int ac, char **av, char **env) {
@@ -382,6 +406,9 @@ int main(int ac, char **av, char **env) {
 	//test_brick_expand(env);
 	//tests_expands(env);
 	//tests_str_to_split_token(env);
-	tests_tokenisation(env);
+
+	tests_tok_to_str_tok(env);
+
+	//tests_tokenisation(env);
 	return (0);
 }

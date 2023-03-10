@@ -16,6 +16,9 @@ FILE := main.c \
 	instruction_block_tree_utils.c \
 	instruction_block_chain.c \
 	instruction_block_tree_debug.c \
+	str_token_debug.c \
+	token_to_str_token.c \
+	t_string_token_utils.c \
 
 
 HEADERS	:= basic_enums.h \

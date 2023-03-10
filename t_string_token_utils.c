@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 00:25:09 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 00:33:40 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 01:46:20 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,16 @@ t_ert	string_token_creator_on(t_string_token **tok_pt)
 		return (MLC_ERR);
 	*tok_pt = new;
 	return (SUCCESS);
+}
+
+void	string_token_destructor(t_string_token *trash)
+{
+	t_string_token *tmp;
+
+	if (trash == NULL)
+		return ;
+	free(trash->content);
+	tmp = trash->next;
+	free(trash);
+	string_token_destructor(tmp);
 }

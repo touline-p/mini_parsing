@@ -10,7 +10,9 @@
     <option name="reloaded" value="true" />
   </component>
   <component name="CMakeRunConfigurationManager">
-    <generated />
+    <generated>
+      <config projectName="mini_parsing" targetName="mini_parsing" />
+    </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
@@ -20,8 +22,22 @@
   <component name="ChangeListManager">
     <list default="true" id="c6b97335-290a-4613-a513-4cdd787e1fcd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/basic_enums.h" beforeDir="false" afterPath="$PROJECT_DIR$/basic_enums.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/instruction_block_chain.c" beforeDir="false" afterPath="$PROJECT_DIR$/instruction_block_chain.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_parsing.h" beforeDir="false" afterPath="$PROJECT_DIR$/mini_parsing.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/str_token_debug.c" beforeDir="false" afterPath="$PROJECT_DIR$/str_token_debug.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t_string_token_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/t_string_token_utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_mini.h" beforeDir="false" afterPath="$PROJECT_DIR$/test_mini.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/token_to_str_token.c" beforeDir="false" afterPath="$PROJECT_DIR$/token_to_str_token.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +79,18 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="mini_parsing" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mini_parsing" TARGET_NAME="mini_parsing" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mini_parsing" RUN_TARGET_NAME="mini_parsing">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -85,7 +113,8 @@
       <workItem from="1678356096044" duration="101000" />
       <workItem from="1678356497678" duration="286000" />
       <workItem from="1678365630699" duration="3608000" />
-      <workItem from="1678381574160" duration="13902000" />
+      <workItem from="1678381574160" duration="14786000" />
+      <workItem from="1678405336895" duration="3753000" />
     </task>
     <servers />
   </component>

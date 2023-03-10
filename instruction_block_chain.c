@@ -6,10 +6,10 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:32:06 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 00:18:07 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 01:02:54 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+/*
 #include "mini_parsing.h"
 
 static t_ert	_get_next_block_on_and_reset_pin_pt(t_token **pin, \
@@ -38,3 +38,4 @@ static t_ert	_get_next_block_on_and_reset_pin_pt(t_token **pin, t_instruction_bl
 
 	return (SUCCESS);
 }
+ */
