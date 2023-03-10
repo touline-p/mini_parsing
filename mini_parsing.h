@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:47:29 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 01:45:41 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 03:02:53 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include <stdbool.h>
 # include <unistd.h>
 # include "libft/libft.h"
+# include <errno.h>
 
 t_token	*mini_parsing(char *str);
 t_token	*token_lst_constructor(char *str);
@@ -33,6 +34,7 @@ void	del_token(t_token *token);
 void	del_next_token(t_token *token);
 void	del_next_word(t_token *token);
 t_ert	insert_str_in_tkn_lst(t_token *token_lst, char *str, t_esec essec);
+int		len_to_next_type(t_token *pin);
 
 /*** preserving ***/
 
@@ -71,5 +73,7 @@ t_string_token	*string_token_creator(void);
 t_ert	string_token_creator_on(t_string_token **tok_pt);
 t_string_token *token_lst_to_str_token(t_token *tok);
 void	string_token_destructor(t_string_token *trash);
+void	cpy_token_lst_to_str(t_token *tok, char *str);
+
 
 #endif //MINI_PARSING_MINI_PARSING_H

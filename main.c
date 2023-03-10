@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 01:45:55 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 02:23:05 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -384,9 +384,6 @@ void	tests_tok_to_str_tok_ln(char *str, char **env)
 	str_tok = token_lst_to_str_token(tok);
 	display_str_token(str_tok);
 	string_token_destructor(str_tok);
-	(void)str_tok;
-
-
 }
 
 void	tests_tok_to_str_tok(char **env)

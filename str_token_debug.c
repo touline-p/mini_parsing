@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 01:06:10 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 01:18:56 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 02:15:49 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	display_t_emt_string(t_string_token *token)
 	const char	*msgarr[] = {"start", "pipe_", "_and_", "fd_in", "fd_ot", "_or__", "ifnot", "hrdoc", "appnd", "lfpar", "rtpar", "smcln", "space", "_tab_", "_ltr_","end_l", "_str_", "dolrs"};
 	char		*msg;
 
+	if (token == NULL)
+		return ;
 	if (token->token == STRING) {
 		msg = ft_strdup(token->content);
 	}

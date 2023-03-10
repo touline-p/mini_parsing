@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:57:21 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/05 13:23:42 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 03:12:35 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,4 +126,17 @@ t_ert	insert_str_in_tkn_lst(t_token *token_lst, char *str, t_esec insert_esec)
 	}
 	token_lst->next = next;
 	return (SUCCESS);
+}
+
+int		len_to_next_type(t_token *pin)
+{
+	int i;
+
+	i = 1;
+	while (pin->token == LETTER)
+	{
+		pin = pin->next;
+		i++;
+	}
+	return (i);
 }
