@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 22:10:50 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 22:46:12 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -363,7 +363,7 @@ void	tokenisation_ln(char *str, char **env)
 	display_str_token(str_tok);
 	if (str_tok == NULL)
 		return ;
-	//str_token_to_instruction_block_tree_on(str_tok, &tree);
+	str_token_to_instruction_block_tree_on(str_tok, &tree);
 	tree = NULL;
 	display_instruction_block_tree(tree, 0);
 	instruction_block_tree_destructor(tree);
@@ -417,6 +417,7 @@ void	tests_pipe_arr_ln(char *str, char **env)
 	str_tok = token_lst_to_str_token(tok);
 	if (init_pipe_arr_on(&pipe_arr, str_tok) != SUCCESS)
 		printf("this_is_shitty\n");
+	string_token_destructor(str_tok);
 	ft_print_pipe_arr(pipe_arr);
 	close_pipe_arr(pipe_arr);
 	ft_free_int_arr(pipe_arr);
@@ -425,6 +426,9 @@ void	tests_pipe_arr_ln(char *str, char **env)
 void	tests_pipe_arr(char **env)
 {
 	tests_pipe_arr_ln("", env);
+	tests_pipe_arr_ln("echo bonjour | cat -e | grep bonjour > la", env);
+	tests_pipe_arr_ln("| || | ||", env);
+	tests_pipe_arr_ln(" bonjour a tous", env);
 }
 
 int main(int ac, char **av, char **env) {
@@ -441,8 +445,8 @@ int main(int ac, char **av, char **env) {
 	//tests_str_to_split_token(env);
 
 	//tests_tok_to_str_tok(env);
-	tests_pipe_arr(env);
+	//tests_pipe_arr(env);
 
-	//tests_tokenisation(env);
+	tests_tokenisation(env);
 	return (0);
 }

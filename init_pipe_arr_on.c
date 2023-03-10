@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 21:20:16 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 21:51:00 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 22:38:23 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ t_ert	init_pipe_arr_on(int ***pipe_arr_pt, t_string_token *tok)
 
 	nb_pipes = _get_nb_pipe(tok);
 	*pipe_arr_pt = malloc(sizeof(int*) * (nb_pipes + 1));
-	if (pipe_arr_pt != NULL
+	if (pipe_arr_pt == NULL
 		|| _allocate_pipe_arr(*pipe_arr_pt, nb_pipes) != SUCCESS
 		|| _pipe_all_this_cells(*pipe_arr_pt) != SUCCESS)
 		return (_allocate_pipe_arr_ep(*pipe_arr_pt, *pipe_arr_pt, FAILURE));
+	printf("i succeeded\n");
 	return (SUCCESS);
 }
 
@@ -44,6 +45,7 @@ static size_t	_get_nb_pipe(t_string_token *tok)
 			i++;
 		tok = tok->next;
 	}
+	printf("they are %ld pipes\n", i);
 	return (i);
 }
 
@@ -75,7 +77,8 @@ static t_ert	_pipe_all_this_cells(int **pipe_arr_pt)
 	while (*pipe_arr_pt)
 	{
 		if (pipe(*pipe_arr_pt) != 0)
-			close_pipe_arr(pipe_arr_pt);
+			return (close_pipe_arr(pipe_arr_pt), FAILURE);
+		pipe_arr_pt++;
 	}
 	return (SUCCESS);
 }

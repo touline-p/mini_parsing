@@ -32,7 +32,7 @@ FLAGS := -Wall -Werror -Wextra -g3 #-D SILENCIEUX=false
 OBJS := $(addprefix obj/, $(FILE:.c=.o))
 
 test	: $(NAME)
-	valgrind --leak-check=full $(NAME) 
+	valgrind --leak-check=full --track-fds=yes $(NAME)
 
 all : $(NAME)
 
