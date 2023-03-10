@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:47:29 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 03:02:53 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 21:48:59 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void	cpy_token_lst_to_str(t_token *tok, char *str);
 
 /*** Block instruction ***/
 
+t_ert	init_pipe_arr_on(int ***pipe_arr_pt, t_string_token *tok);
 t_ert	str_token_to_instruction_block_tree_on(t_string_token *tok, t_instruction_block_tree **tree_pt);
 
 #endif //MINI_PARSING_MINI_PARSING_H

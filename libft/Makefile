@@ -68,7 +68,8 @@ FILES	=	ft_atoi.c \
 	get_next_line.c \
 	ft_print_split.c \
 	close_pipe_arr.c \
-	
+	ft_free_int_arr.c \
+
 HFILES	=	libft.h\
 
 ODIR	=	./

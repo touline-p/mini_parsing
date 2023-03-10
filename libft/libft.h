@@ -6,7 +6,7 @@
 /*   By: bpoumeau <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 13:23:19 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 21:46:37 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 22:07:52 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void		*ft_memdup(void *src, size_t ln);
 void		ft_swap(int *a, int *b);
 int			ft_is_overflowing(char *str);
 void		*ft_free_split(char **dst);
+void		ft_free_int_arr(int **int_arr);
 void		ft_print_split(char **split);
 char		*ft_strjoin_three(char *a, char *b, char *c);
 void		*per_n_ret(char *msg);
@@ -102,6 +103,7 @@ t_ert		ft_atoi_on(const char *str, int *int_pt);
 /** Pipes utils **/
 
 void	close_pipe_arr(int **pipe_arr);
+void	ft_print_pipe_arr(int **pipe_arr);
 
 /**	INT_ARR_UTILS **/
 size_t		int_arr_ret_min_indx(int *int_arr, size_t ln);

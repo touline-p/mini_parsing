@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 19:15:52 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/10 22:10:50 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -363,7 +363,8 @@ void	tokenisation_ln(char *str, char **env)
 	display_str_token(str_tok);
 	if (str_tok == NULL)
 		return ;
-	str_token_to_instruction_block_tree_on(str_tok, &tree);
+	//str_token_to_instruction_block_tree_on(str_tok, &tree);
+	tree = NULL;
 	display_instruction_block_tree(tree, 0);
 	instruction_block_tree_destructor(tree);
 }
@@ -401,21 +402,47 @@ void	tests_tok_to_str_tok(char **env)
 
 }
 
+void	tests_pipe_arr_ln(char *str, char **env)
+{
+	t_token			*tok;
+	t_string_token	*str_tok;
+	int 			**pipe_arr;
+
+	printf("pipes arr for ->%s<-\n", str);
+	tok = TLC(str);
+	preserve_token_lst(tok);
+	expand_dollars(tok, env);
+	split_toklst_on_meta(tok);
+	regroup_meta(tok);
+	str_tok = token_lst_to_str_token(tok);
+	if (init_pipe_arr_on(&pipe_arr, str_tok) != SUCCESS)
+		printf("this_is_shitty\n");
+	ft_print_pipe_arr(pipe_arr);
+	close_pipe_arr(pipe_arr);
+	ft_free_int_arr(pipe_arr);
+}
+
+void	tests_pipe_arr(char **env)
+{
+	tests_pipe_arr_ln("", env);
+}
+
 int main(int ac, char **av, char **env) {
 
 	(void)ac;
 	(void)av;
-	tests_preserves();
-	tests_id_meta();
-	tests_metachar_groupment();
-	tests_metachar_split();
-	tests_get_next_emt();
-	test_brick_expand(env);
-	tests_expands(env);
-	tests_str_to_split_token(env);
+	//tests_preserves();
+	//tests_id_meta();
+	//tests_metachar_groupment();
+	//tests_metachar_split();
+	//tests_get_next_emt();
+	//test_brick_expand(env);
+	//tests_expands(env);
+	//tests_str_to_split_token(env);
 
-	tests_tok_to_str_tok(env);
+	//tests_tok_to_str_tok(env);
+	tests_pipe_arr(env);
 
-	tests_tokenisation(env);
+	//tests_tokenisation(env);
 	return (0);
 }

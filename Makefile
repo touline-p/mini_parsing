@@ -19,6 +19,7 @@ FILE := main.c \
 	str_token_debug.c \
 	token_to_str_token.c \
 	t_string_token_utils.c \
+	init_pipe_arr_on.c \
 
 
 HEADERS	:= basic_enums.h \
