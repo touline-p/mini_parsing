@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/11 19:56:26 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/11 21:21:56 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -440,11 +440,19 @@ void	tests_all_first_child_ln(char *str, char **env)
 
 	printf("pipes arr for ->%s<-\n", str);
 	tok = TLC(str);
+	display_tokens(tok);
 	preserve_token_lst(tok);
+	display_tokens(tok);
 	expand_dollars(tok, env);
+	display_tokens(tok);
 	split_toklst_on_meta(tok);
+	display_tokens(tok);
 	regroup_meta(tok);
+	display_tokens(tok);
 	str_tok = token_lst_to_str_token(tok);
+	display_str_token(str_tok);
+	del_space_token(str_tok);
+	display_str_token(str_tok);
 	if (init_pipe_arr_on(&pipe_arr, str_tok) != SUCCESS)
 		printf("this_is_shitty\n");
 	t_string_token *cpy = str_tok;
@@ -459,11 +467,13 @@ void	tests_all_first_child_ln(char *str, char **env)
 
 void	tests_all_first_child(char **env)
 {
-	tests_all_first_child_ln("", env);
-	tests_all_first_child_ln("echo you | cat -e | then", env);
-	tests_all_first_child_ln("echo you || cat -e | then", env);
-	tests_all_first_child_ln("echo you & cat -e | then", env);
-	tests_all_first_child_ln("echo you && cat -e | then", env);
+	//tests_all_first_child_ln("", env);
+	tests_all_first_child_ln("echo you \"\"| cat -e | then", env);
+	//tests_all_first_child_ln("echo you || cat -e | then", env);
+	//tests_all_first_child_ln("echo you & cat -e | then", env);
+	//tests_all_first_child_ln("echo you && cat -e | then", env);
+	//tests_all_first_child_ln("echo you < ah && cat -e | then | ", env);
+	//tests_all_first_child_ln("echo you > ah && cat -e | then | ", env);
 }
 
 int main(int ac, char **av, char **env) {
@@ -479,7 +489,7 @@ int main(int ac, char **av, char **env) {
 	//tests_expands(env);
 	//tests_str_to_split_token(env);
 
-	tests_tok_to_str_tok(env);
+	//tests_tok_to_str_tok(env);
 	//tests_pipe_arr(env);
 
 	tests_all_first_child(env);

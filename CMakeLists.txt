@@ -7,10 +7,12 @@ include_directories(.)
 include_directories(libft)
 
 add_executable(mini_parsing
+        libft/close_pipe_arr.c
         libft/ft_atoi.c
         libft/ft_atoi_on.c
         libft/ft_bzero.c
         libft/ft_calloc.c
+        libft/ft_free_int_arr.c
         libft/ft_intarr_set.c
         libft/ft_is_overflowing.c
         libft/ft_isalnum.c
@@ -27,6 +29,7 @@ add_executable(mini_parsing
         libft/ft_memdup.c
         libft/ft_memmove.c
         libft/ft_memset.c
+        libft/ft_print_split.c
         libft/ft_putchar_fd.c
         libft/ft_putendl_fd.c
         libft/ft_putnbr_fd.c
@@ -63,16 +66,29 @@ add_executable(mini_parsing
         libft/put_ert.c
         libft/str_is_made_of.c
         basic_enums.h
+        child_token.c
         double_quoting.c
         escaping_chars.c
         expand_variable.c
+        init_pipe_arr_on.c
+        instruction_block_building_utils.c
+        instruction_block_chain.c
+        instruction_block_tree_debug.c
+        instruction_block_tree_utils.c
         main.c
         mini_parsing.c
         mini_parsing.h
+        per_n_set_errno.c
         preserv.c
         simple_quoting.c
+        simple_tokens_utils.c
         split_on_meta.c
         split_toklst_on_meta.c
+        str_token_debug.c
+        str_token_utils.c
+        suppress_quotes.c
+        t_string_token_utils.c
         test_mini.h
         testing_utils.c
-        token_lst_utils.c)
+        token_lst_utils.c
+        token_to_str_token.c)

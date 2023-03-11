@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 00:25:09 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 12:43:07 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/11 21:31:18 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,37 @@ void	cpy_token_lst_to_str(t_token *tok, char *str)
 	str[0] = tok->sign_char;
 	while (tok->token == LETTER)
 	{
-		str[i] = tok->sign_char;
-		i++;
+		if (!is_from(tok->sign_char, "\'\"") || tok->esec == SECURED)
+		{
+			str[i] = tok->sign_char;
+			i++;
+		}
 		tok = tok->next;
 	}
 	str[i] = 0;
+}
+
+void	del_next_string_token(t_string_token *tok)
+{
+	t_string_token	*tmp;
+
+	tmp = tok->next->next;
+	free(tok->next->content);
+	free(tok->next);
+	tok->next = tmp;
+}
+
+
+void	del_space_token(t_string_token *tok)
+{
+	t_string_token *pin;
+
+	pin = tok;
+	while (pin->next->token != EOL)
+	{
+		if (pin->next->token == SPACE || pin->next->token == TABULATION)
+			del_next_string_token(pin);
+		else
+			pin = pin->next;
+	}
 }

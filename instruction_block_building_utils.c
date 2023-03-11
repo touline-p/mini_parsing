@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:02:15 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/11 20:23:12 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/11 21:04:00 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "mini_parsing.h"
 
 t_ert	dn(t_instruction_block_tree *block, t_string_token *tok);
+t_ert	open_chevron_in(t_instruction_block_tree *block, t_string_token *tok);
 
 t_ert	stock_last_redirect(t_instruction_block_tree *block, t_string_token *tok)
 {
@@ -46,6 +47,11 @@ t_ert	open_chevron_in(t_instruction_block_tree *block, t_string_token *tok)
 	int fd;
 
 	fd = open(tok->next->content, O_RDONLY);
+	printf("\n\n\noh damn %d \n\n\n\n", fd);
 	if (fd == -1)
-		return (per_n_set_errno((char *)tok->next->content), SUCCESS);
+		per_n_set_errno((char *)tok->next->content);
+	if (fd > 2)
+		close(block->fd_in);
+	block->fd_in = fd;
+	return (SUCCESS);
 }
