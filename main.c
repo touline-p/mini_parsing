@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/11 16:52:47 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/11 19:56:26 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -479,7 +479,7 @@ int main(int ac, char **av, char **env) {
 	//tests_expands(env);
 	//tests_str_to_split_token(env);
 
-	//tests_tok_to_str_tok(env);
+	tests_tok_to_str_tok(env);
 	//tests_pipe_arr(env);
 
 	tests_all_first_child(env);

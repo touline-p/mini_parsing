@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 00:07:39 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/11 16:49:19 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/11 17:30:48 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_ert	allocate_first_child_on(t_string_token **str_tok_pt, t_instruction_block_t
 	_init_first_child_fds(*block_pt);
 	if (next_control_operator_is_a_pipe((*str_tok_pt)->next))
 		(*block_pt)->fd_out = pipe_arr[0][1];
-	stock_last_redirect(&((*block_pt)->fd_out), *str_tok_pt);
+	stock_last_redirect(*block_pt, *str_tok_pt);
 	return (SUCCESS);
 }
 

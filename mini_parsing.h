@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:47:29 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/11 16:47:35 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/11 20:19:23 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <unistd.h>
 # include "libft/libft.h"
 # include <errno.h>
+# include <fcntl.h>
 
 t_token	*mini_parsing(char *str);
 t_token	*token_lst_constructor(char *str);
@@ -35,6 +36,10 @@ void	del_next_token(t_token *token);
 void	del_next_word(t_token *token);
 t_ert	insert_str_in_tkn_lst(t_token *token_lst, char *str, t_esec essec);
 int		len_to_next_type(t_token *pin);
+
+/*** t_emt utils ***/
+
+t_ert	is_control_operator(t_emt token);
 
 /*** preserving ***/
 
@@ -81,5 +86,9 @@ int				next_control_operator_is_a_pipe(t_string_token *tok);
 t_ert	allocate_first_child_on(t_string_token **str_tok_pt, t_instruction_block_tree **block_pt, int **pipe_arr);
 t_ert	init_pipe_arr_on(int ***pipe_arr_pt, t_string_token *tok);
 t_ert	str_token_to_instruction_block_tree_on(t_string_token *tok, t_instruction_block_tree **tree_pt);
+
+/*** build block ***/
+
+t_ert	stock_last_redirect(t_instruction_block_tree *block, t_string_token *tok);
 
 #endif //MINI_PARSING_MINI_PARSING_H

@@ -21,10 +21,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c6b97335-290a-4613-a513-4cdd787e1fcd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/instruction_block_building_utils.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/simple_tokens_utils.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/per_n_ret.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basic_enums.h" beforeDir="false" afterPath="$PROJECT_DIR$/basic_enums.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bonjour" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/child_token.c" beforeDir="false" afterPath="$PROJECT_DIR$/child_token.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instruction_block_building_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/instruction_block_building_utils.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_parsing.h" beforeDir="false" afterPath="$PROJECT_DIR$/mini_parsing.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,11 +73,6 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="mini_parsing" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mini_parsing" TARGET_NAME="mini_parsing" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mini_parsing" RUN_TARGET_NAME="mini_parsing">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -107,11 +108,23 @@
       <workItem from="1678469711920" duration="705000" />
       <workItem from="1678471866116" duration="1621000" />
       <workItem from="1678479076568" duration="12351000" />
-      <workItem from="1678546020936" duration="3422000" />
+      <workItem from="1678546020936" duration="4067000" />
+      <workItem from="1678560098090" duration="2542000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/instruction_block_building_utils.c</url>
+          <line>16</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
