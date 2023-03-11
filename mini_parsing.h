@@ -77,6 +77,7 @@ void	cpy_token_lst_to_str(t_token *tok, char *str);
 
 /*** Block instruction ***/
 
+t_ert	allocate_first_child_on(t_string_token **str_tok_pt, t_instruction_block_tree **block_pt, int **pipe_arr);
 t_ert	init_pipe_arr_on(int ***pipe_arr_pt, t_string_token *tok);
 t_ert	str_token_to_instruction_block_tree_on(t_string_token *tok, t_instruction_block_tree **tree_pt);
 

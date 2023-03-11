@@ -20,6 +20,7 @@ FILE := main.c \
 	token_to_str_token.c \
 	t_string_token_utils.c \
 	init_pipe_arr_on.c \
+	child_token.c \
 
 
 HEADERS	:= basic_enums.h \
