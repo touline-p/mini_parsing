@@ -23,6 +23,7 @@ t_ert	allocate_first_child_on(t_string_token **str_tok_pt, t_instruction_block_t
 	_init_first_child_fds(*block_pt);
 	if (next_control_operator_is_a_pipe((*str_tok_pt)->next))
 		(*block_pt)->fd_out = pipe_arr[0][1];
+	stock_last_redirect(&((*block_pt)->fd_out), *str_tok_pt);
 	return (SUCCESS);
 }
 
