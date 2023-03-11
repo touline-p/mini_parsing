@@ -23,10 +23,11 @@
     <list default="true" id="c6b97335-290a-4613-a513-4cdd787e1fcd" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init_pipe_arr_on.c" beforeDir="false" afterPath="$PROJECT_DIR$/init_pipe_arr_on.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/close_pipe_arr.c" beforeDir="false" afterPath="$PROJECT_DIR$/libft/close_pipe_arr.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/libft/libft.a" beforeDir="false" afterPath="$PROJECT_DIR$/libft/libft.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/child_token.c" beforeDir="false" afterPath="$PROJECT_DIR$/child_token.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mini_parsing.h" beforeDir="false" afterPath="$PROJECT_DIR$/mini_parsing.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/str_token_utils.c" beforeDir="false" afterPath="$PROJECT_DIR$/str_token_utils.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,9 +70,9 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="mini_parsing" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="mini_parsing" TARGET_NAME="mini_parsing" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="mini_parsing" RUN_TARGET_NAME="mini_parsing">
@@ -108,7 +109,8 @@
       <workItem from="1678451688083" duration="4479000" />
       <workItem from="1678469711920" duration="705000" />
       <workItem from="1678471866116" duration="1621000" />
-      <workItem from="1678479076568" duration="5608000" />
+      <workItem from="1678479076568" duration="12351000" />
+      <workItem from="1678546020936" duration="2130000" />
     </task>
     <servers />
   </component>

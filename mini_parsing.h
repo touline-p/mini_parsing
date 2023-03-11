@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:47:29 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/10 21:48:59 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/11 16:47:35 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,11 @@ t_ert						instruction_block_tree_constructor_on(t_instruction_block_tree **t_in
 
 /*** String token ***/
 t_string_token	*string_token_creator(void);
-t_ert	string_token_creator_on(t_string_token **tok_pt);
+t_ert			string_token_creator_on(t_string_token **tok_pt);
 t_string_token *token_lst_to_str_token(t_token *tok);
-void	string_token_destructor(t_string_token *trash);
-void	cpy_token_lst_to_str(t_token *tok, char *str);
+void			string_token_destructor(t_string_token *trash);
+void			cpy_token_lst_to_str(t_token *tok, char *str);
+int				next_control_operator_is_a_pipe(t_string_token *tok);
 
 /*** Block instruction ***/
 

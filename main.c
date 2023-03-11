@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/11 00:27:21 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/11 16:52:47 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -460,7 +460,10 @@ void	tests_all_first_child_ln(char *str, char **env)
 void	tests_all_first_child(char **env)
 {
 	tests_all_first_child_ln("", env);
-	tests_all_first_child_ln("echo you | cat -e", env);
+	tests_all_first_child_ln("echo you | cat -e | then", env);
+	tests_all_first_child_ln("echo you || cat -e | then", env);
+	tests_all_first_child_ln("echo you & cat -e | then", env);
+	tests_all_first_child_ln("echo you && cat -e | then", env);
 }
 
 int main(int ac, char **av, char **env) {

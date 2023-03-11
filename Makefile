@@ -21,6 +21,7 @@ FILE := main.c \
 	t_string_token_utils.c \
 	init_pipe_arr_on.c \
 	child_token.c \
+	str_token_utils.c \
 
 
 HEADERS	:= basic_enums.h \
