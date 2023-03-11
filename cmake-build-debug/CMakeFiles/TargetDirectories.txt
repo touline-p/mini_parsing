@@ -1,3 +1,0 @@
-/nfs/homes/bpoumeau/Documents/mini_parsing/cmake-build-debug/CMakeFiles/mini_parsing.dir
-/nfs/homes/bpoumeau/Documents/mini_parsing/cmake-build-debug/CMakeFiles/edit_cache.dir
-/nfs/homes/bpoumeau/Documents/mini_parsing/cmake-build-debug/CMakeFiles/rebuild_cache.dir
