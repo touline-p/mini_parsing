@@ -24,7 +24,8 @@ FILE := main.c \
 	str_token_utils.c \
 	instruction_block_building_utils.c \
 	simple_tokens_utils.c \
-	per_n_set_errno.c
+	per_n_set_errno.c \
+	get_here_doc_fd.c \
 
 
 HEADERS	:= basic_enums.h \

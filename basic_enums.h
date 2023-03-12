@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:42:21 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/11 20:00:24 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/11 23:45:53 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,6 @@ typedef struct	s_instruction_block_tree
 	int							fd_out;
 }	t_instruction_block_tree;
 
-typedef t_ert	(*t_fd_ft)(t_instruction_block_tree *block, t_string_token *tok);
+typedef t_ert	(*t_fd_ft)(t_instruction_block_tree *block, t_string_token *tok, char **env);
 
 #endif //MINI_PARSING_BASIC_ENUMS_H

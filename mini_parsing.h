@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:47:29 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/11 21:17:23 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/12 00:42:05 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,13 @@ void			del_space_token(t_string_token *tok);
 
 /*** Block instruction ***/
 
-t_ert	allocate_first_child_on(t_string_token **str_tok_pt, t_instruction_block_tree **block_pt, int **pipe_arr);
+t_ert	allocate_first_child_on(t_string_token **str_tok_pt, t_instruction_block_tree **block_pt, int **pipe_arr, char **env);
 t_ert	init_pipe_arr_on(int ***pipe_arr_pt, t_string_token *tok);
 t_ert	str_token_to_instruction_block_tree_on(t_string_token *tok, t_instruction_block_tree **tree_pt);
 
 /*** build block ***/
 
-t_ert	stock_last_redirect(t_instruction_block_tree *block, t_string_token *tok);
+t_ert	stock_last_redirect(t_instruction_block_tree *block, t_string_token *tok, char **env);
 
 void	per_n_set_errno(char *msg);
 

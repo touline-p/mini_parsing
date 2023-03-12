@@ -6,7 +6,7 @@
 /*   By: bpoumeau <bpoumeau@student.42lyon.f>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 11:33:30 by bpoumeau          #+#    #+#             */
-/*   Updated: 2023/03/11 21:38:48 by bpoumeau         ###   ########.fr       */
+/*   Updated: 2023/03/12 00:43:24 by bpoumeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -456,7 +456,7 @@ void	tests_all_first_child_ln(char *str, char **env)
 	if (init_pipe_arr_on(&pipe_arr, str_tok) != SUCCESS)
 		printf("this_is_shitty\n");
 	t_string_token *cpy = str_tok;
-	allocate_first_child_on(&cpy, &first_child_block, pipe_arr);
+	allocate_first_child_on(&cpy, &first_child_block, pipe_arr, env);
 	string_token_destructor(str_tok);
 	ft_print_pipe_arr(pipe_arr);
 	close_pipe_arr(pipe_arr);
